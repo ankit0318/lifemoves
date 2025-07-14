@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import HeroSection from '../components/Somatic/HeroSection';
 import StoryHook from '../components/Somatic/StoryHook';

@@ -56,16 +56,16 @@ export default function StoryHook() {
             You've just been…{' '}
             <span className="relative inline-block">
               <span className="italic relative z-10">busy</span>.
-              <motion.div
-                className="absolute -inset-x-2 -inset-y-0 bg-amber-200/70 rounded-full -z-10"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-                style={{ transformOrigin: 'left' }}
-              />
             </span>
           </p>
+          <motion.div
+            className="absolute -inset-x-2 -inset-y-0 bg-amber-200/70 rounded-full -z-10"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+            style={{ transformOrigin: 'left', pointerEvents: 'none' }}
+          />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
