@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Heart, Sparkles } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
 
 export default function FinalCTA() {
   return (
@@ -32,9 +33,15 @@ export default function FinalCTA() {
               {' '}you never listened to.
             </h2>
             
-            <p className="text-xl md:text-2xl text-gray-600 mb-12">
+            <p className="text-xl md:text-2xl text-gray-600 mb-4">
               Let's change that — in just 10 minutes a day.
             </p>
+            <div className="flex justify-center mb-12">
+              <div className="w-auto">
+                {/* Countdown Timer: clean, professional, sleek */}
+                <CountdownTimer />
+              </div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

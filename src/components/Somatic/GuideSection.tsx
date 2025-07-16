@@ -1,119 +1,151 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Award, Users, Clock, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Award, Users, CheckCircle, Book, Star } from 'lucide-react';
 
 export default function GuideSection() {
-  const credentials = [
-    {
-      icon: Award,
-      title: "Certified Somatic Educator",
-      description: "Professional training in body-based healing"
-    },
-    {
-      icon: Users,
-      title: "1000+ People Helped",
-      description: "Professionals, artists, and everyday people"
-    },
-    {
-      icon: Clock,
-      title: "10+ Years Experience",
-      description: "Decade of wellness and movement practice"
-    },
-    {
-      icon: Heart,
-      title: "Holistic Approach",
-      description: "Mind-body connection specialist"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Meet Aman — Your Somatic Guide
+    <section className="py-20 bg-gradient-to-b from-white to-gray-100">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-4">
+          <span className="text-orange-500 text-sm font-medium tracking-wide uppercase">
+            Meet Your Guide
+          </span>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
+            Meet Aman - Your Somatic Guide
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            The person who'll help you reconnect with your body, one breath at a time
+          <p className="text-xl text-gray-500 text-center mb-16 max-w-2xl mx-auto">
+            Helping thousands heal chronic pain and stress through gentle, body-based practices
           </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="relative">
-              <div className="bg-gradient-to-br from-purple-100 to-green-100 rounded-2xl p-8">
-                <div className="w-full h-64 bg-gradient-to-r from-purple-400 to-purple-600 rounded-xl flex items-center justify-center text-white">
-                  <div className="text-center">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-3xl font-bold text-purple-600">A</span>
-                    </div>
-                    <p className="text-lg font-semibold">Aman</p>
-                    <p className="text-sm opacity-90">Somatic Movement Guide</p>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Image and Stats */}
+            <div className="space-y-8">
+              <div className="relative">
+                <Image
+                  src="/yoga.png"
+                  alt="Aman - Professional Wellness Coach"
+                  width={500}
+                  height={600}
+                  className="rounded-lg shadow-lg w-full"
+                />
+                <div className="absolute -bottom-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <Users className="w-5 h-5" />
+                    <span className="font-semibold">50,000+ Lives Transformed</span>
                   </div>
                 </div>
               </div>
               
-              <motion.div
-                className="absolute -top-4 -right-4 w-8 h-8 bg-green-400 rounded-full"
-                animate={{
-                  y: [0, -10, 0],
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              />
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Aman is a certified somatic movement educator and wellness facilitator with 10+ years of experience helping people reconnect to their bodies through intuitive movement.
-              </p>
-              <p className="text-gray-700 leading-relaxed">
-                He's worked with professionals, artists, and everyday people to release tension, restore energy, and reclaim joy — one breath and micro-movement at a time.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-4">
-              {credentials.map((credential, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <credential.icon className="w-5 h-5 text-purple-600" />
-                    <h4 className="font-semibold text-gray-900">{credential.title}</h4>
+            {/* Right Column - Content */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Namaste, I'm Aman 🙏
+                </h3>
+                <p className="text-lg text-gray-500 leading-relaxed mb-6">
+                  After experiencing chronic pain and stress from years of corporate life, I discovered the transformative power of somatic movement. What started as my personal healing journey has now become my mission to help others in our Indian community.
+                </p>
+                
+              </div>
+              {/* Mission */}
+              <div className="bg-orange-50 border-l-4 border-orange-400 rounded-lg p-6 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <span className="text-3xl text-orange-400 font-serif leading-none">“</span>
+                  <p className="italic text-gray-700 text-lg">
+                    Movement is medicine. But it should never feel like punishment.
+                  </p>
+                </div>
+                <div className="mt-4 text-right text-sm text-gray-500 font-semibold">
+                  – Aman
+                </div>
+              </div>
+              {/* Stats Cards - Redesigned */}
+              <div className="flex flex-col gap-6 sm:flex-row sm:gap-4 bg-violet-50 rounded-2xl p-6 justify-center items-center">
+                {/* Card 1 */}
+                <div className="flex flex-col items-center text-center flex-1">
+                  <div className="bg-violet-500 rounded-full p-3 mb-2 flex items-center justify-center">
+                    <Book className="w-7 h-7 text-white" />
                   </div>
-                  <p className="text-sm text-gray-600">{credential.description}</p>
-                </motion.div>
-              ))}
+                  <div className="text-2xl font-bold text-gray-900">15+</div>
+                  <div className="text-gray-500 text-sm">Years Experience</div>
+                </div>
+                {/* Card 2 */}
+                <div className="flex flex-col items-center text-center flex-1">
+                  <div className="bg-violet-500 rounded-full p-3 mb-2 flex items-center justify-center">
+                    <Users className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900">10,000+</div>
+                  <div className="text-gray-500 text-sm">Students Guided</div>
+                </div>
+                {/* Card 3 */}
+                <div className="flex flex-col items-center text-center flex-1">
+                  <div className="bg-violet-500 rounded-full p-3 mb-2 flex items-center justify-center">
+                    <Star className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900">Featured</div>
+                  <div className="text-gray-500 text-sm">Wellness Publications</div>
+                </div>
+              </div>
+              {/* Certifications */}
+              <div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-6">
+                  Certifications & Training
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Award className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        Certified Somatic Movement Educator
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        International Somatic Institute • 2019
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        Trauma-Informed Bodywork Practitioner
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Somatic Experiencing Institute • 2020
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Award className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        Mindfulness-Based Stress Reduction
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        Center for Mindfulness • 2021
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* CTA Button */}
+              <div className="pt-4">
+                <Button 
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300"
+                >
+                  Start Your Healing Journey
+                </Button>
+              </div>
             </div>
-          </motion.div>
+          </div>
+          {/* Experience Badge */}
+          <div className="text-center mt-12">
+            <div className="inline-flex items-center gap-2 bg-green-100 text-green-600 px-6 py-3 rounded-full font-semibold">
+              <CheckCircle className="w-5 h-5" />
+              8+ Years Experience
+            </div>
+          </div>
         </div>
       </div>
     </section>
