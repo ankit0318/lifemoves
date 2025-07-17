@@ -87,7 +87,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-transparent">
                     Body
                   </span>
-                  <div className="absolute -bottom-2 left-0 w-full h-4 bg-gradient-to-r from-indigo-200 to-purple-200 rounded-full opacity-50"></div>
+                  {/* <div className="absolute -bottom-2 left-0 w-full h-4 bg-gradient-to-r from-indigo-200 to-purple-200 rounded-full opacity-50"></div> */}
                 </span>
               </h1>
               
@@ -101,11 +101,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* For whom - Enhanced styling */}
-            <div className="inline-block bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl px-8 py-4 shadow-sm">
+            {/* <div className="inline-block bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl px-8 py-4 shadow-sm">
               <p className="text-emerald-800 font-semibold text-lg tracking-wide">
                 For tired humans, desk zombies & anti-routine rebels
               </p>
-            </div>
+            </div> */}
 
             {/* CTA Section - Enhanced layout */}
             <div className="space-y-8 pt-4">
