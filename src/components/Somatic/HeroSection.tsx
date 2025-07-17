@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Play, Sparkles } from 'lucide-react'
+import { Play, Sparkles, Users, Clock, ArrowRight, Star } from 'lucide-react'
 
 interface HeroSectionProps {
   videoSrc?: string
@@ -20,10 +20,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     seconds: 54
   })
 
-  const [leftContentHeight, setLeftContentHeight] = useState<number | undefined>(undefined)
-  const [leftContentTop, setLeftContentTop] = useState<number | undefined>(undefined)
-  const leftContentRef = useRef<HTMLDivElement>(null)
-  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const videoRef = useRef<HTMLDivElement>(null)
 
   // Timer countdown effect
   useEffect(() => {
@@ -49,18 +47,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(timer)
   }, [])
 
-  useEffect(() => {
-    const updateHeight = () => {
-      if (leftContentRef.current && sectionRef.current) {
-        setLeftContentHeight(leftContentRef.current.offsetHeight)
-        setLeftContentTop(leftContentRef.current.offsetTop)
-      }
-    }
-    updateHeight()
-    window.addEventListener('resize', updateHeight)
-    return () => window.removeEventListener('resize', updateHeight)
-  }, [])
-
   const formatTime = (time: number): string => {
     return time.toString().padStart(2, '0')
   }
@@ -68,116 +54,163 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const userAvatars = [
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCaZ9zcNs9mCvftJU3dsS2JlGdwNUcPGZQ3clXbfFQBEuycilXnCcdn4NBiKLcxlM3BWDWeUInfMTQQf85831khwkDLKv-xXwVwE1-jhSN8p3oQnYk7xBCGqXXRXyeKY9TgLfB7afDg2NEUfQaPQxXL3YTeUSepfPHufQrxX-j2C_gkxkI1eaDvDOul6FRfztEer4yzBdfH47Mmz3mRgiuIHFAfDbSRvyg_yPVlSuKLngIRkGRqO9tX6Qo7oNXXN-95njeusmAMx8Q",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuAICgIMuBNYFwccRCKjIuzppdwFIpL_KdGZeMyfnYNW-MP2W26_o-1B9Ce5LfbSVt-8VtnLZfCZuGZ2t0USL_E5N1WoZeT75tGBUyhtOuGaCnK0I5ksmqvMyutIXnenOo7TeUI4ElR7BVft993S5YlssXlULAHM9nTB4y2ebYFLLGb_gPYRP3ErSxLm-orMofH2tDJPJanZORXoFVyqKdQFT7JkFb7A3qf1jID5cm88AdbjEdXapnyr07jUp6_dRD4RY1lujbZfpKg",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBRzj854ZhBthjuWKRhEKil21M-3mb3NYMs-qZsHXk1x-M6ddWiOfhFsWD57aLerTeSBPLAe1_BQgZSwPoKVSm-KktTVALDioN45BQrRCpozK4Z0G34VJQqmlqiICW011adNqpwHxb3vuutezu9EuKAM_y4pkO5R7PPt6WCFp7Gxm3qXPKtIUptbpQ2NMkEEPX0n_DfoziGGwDegpH1eVJFKChgD4W1DfPoPo0HJyOUou3twd9MqYfcKyYtxN8mbdN9nHshTQhUrEg",
+    "https://lh3.googleusercontent.com/aida-public/AB6AXuBRzj854ZhBthjuWKRhEKil21M-3mb3NYMs-qZsHXk1x-M6ddWiOfhFsWD57aLerTeSBPLAe1_BQgZSwPoKVSm-KktTVALDioN45BQrRCpozK4Z0G34VJQqmlqiICW011adNqpwHxb3vuutezu9EuKAM_y4pkO5R7PPt6WCFp7Gxm3qXX0n_DfoziGGwDegpH1eVJFKChgD4W1DfPoPo0HJyOUou3twd9MqYfcKyYtxN8mbdN9nHshTQhUrEg",
     "https://lh3.googleusercontent.com/aida-public/AB6AXuA_rNSMUzT5JArlT1ETjo53rE6PrKqIoNw64S5Jce72yqyOU3yuySclfmYYtBdamrrDt1Yz70Q_GAPdMrrO_HHFdHwWvLlYa11p-BWa0M3BiGoMFc636VZAkF1Bn4atKEXrBwC02KGnq7MC3B9gvdxZ466qC5yDzbuZGcQpOKJzIWlBOQbwrs3fNeV4f7Vk9076aoCWLH2m3kE2fesBXTDcKpWqkOtSG_hTReL5kzDfFTFkbITaS2YyMBW6DEB-6Lt4QAYTPg2abIU"
   ]
 
   return (
-    <div ref={sectionRef} className="relative  flex items-center justify-center py-20 px-2 sm:px-4 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-purple-200 rounded-full opacity-20 blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-56 h-56 bg-green-100 rounded-full opacity-30 blur-3xl translate-x-1/4 translate-y-1/4"></div>
-      
-      
+    <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
+      {/* Subtle background patterns */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-emerald-300 to-teal-300 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-to-br from-purple-300 to-pink-300 rounded-full blur-3xl"></div>
+      </div>
 
-      <div className="max-w-6xl mx-auto z-10 w-full relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative">
-          {/* Left content */}
-          <div ref={leftContentRef} className="space-y-5">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight">
-              Feel Better in Your Body in Just{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
-                10 Minutes a Day
-              </span>
-            </h1>
-            
-            <p className="text-xl text-gray-600">
-              Without the Gym, the Grind, or Guilt
-            </p>
-            
-            <div className="bg-white border border-gray-200 rounded-2xl p-3 inline-flex items-center space-x-3 shadow-md">
-              <Sparkles className="w-5 h-5 text-purple-600" />
-              <span className="font-semibold text-gray-800 text-base">The 7-Day Somatic Reset Challenge</span>
-            </div>
-            
-            <p className="text-gray-500 text-base">For tired humans, desk zombies & anti-routine rebels</p>
-            
-            <div className="flex flex-col sm:flex-row items-center gap-3">
-              <button 
-                onClick={onJoinClick}
-                className="bg-gradient-to-r from-purple-600 to-purple-500 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto text-lg"
-              >
-                Join Now for ₹999
-              </button>
-              
-              <div className="bg-purple-50 border border-purple-200 text-purple-800 text-sm font-medium px-5 py-2 rounded-full flex items-center gap-2">
-                <span>Offer Ends in:</span>
-                <span className="font-bold tracking-widest">
-                  {formatTime(timeLeft.hours)} : {formatTime(timeLeft.minutes)} : {formatTime(timeLeft.seconds)}
+      {/* Main container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex flex-col justify-center items-center py-12 lg:py-20">
+          
+          {/* Top content - Centered text and CTA */}
+          <div className="text-center space-y-8 mb-12 lg:mb-16 max-w-5xl">
+            {/* Badge */}
+            {/* <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-sm border border-indigo-200 rounded-full shadow-lg">
+              <Sparkles className="w-5 h-5 text-indigo-600" />
+              <span className="text-base font-semibold text-indigo-700 tracking-wide">7-Day Transformation Challenge</span>
+            </div> */}
+
+            {/* Main headline with enhanced typography */}
+            <div className="space-y-6">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-gray-900 leading-[0.9] tracking-tight">
+                Feel Better in Your{' '}
+                <span className="relative inline-block">
+                  <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-transparent">
+                    Body
+                  </span>
+                  <div className="absolute -bottom-2 left-0 w-full h-4 bg-gradient-to-r from-indigo-200 to-purple-200 rounded-full opacity-50"></div>
                 </span>
-              </div>
+              </h1>
+              
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-700 leading-tight">
+                in Just <span className="text-indigo-700 font-black">10 Minutes</span> a Day
+              </p>
+              
+              <p className="text-lg sm:text-xl lg:text-2xl font-light text-gray-500 tracking-wide">
+                Without the Gym, the Grind, or Guilt
+              </p>
             </div>
-            
-            <div className="flex items-center space-x-4">
-              <div className="flex -space-x-2">
-                {userAvatars.map((avatar, index) => (
-                  <img
-                    key={index}
-                    alt={`User ${index + 1}`}
-                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white object-cover"
-                    src={avatar}
-                  />
-                ))}
-                <div className="h-10 w-10 rounded-full ring-2 ring-white bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-600">
-                  +F
+
+            {/* For whom - Enhanced styling */}
+            <div className="inline-block bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-2xl px-8 py-4 shadow-sm">
+              <p className="text-emerald-800 font-semibold text-lg tracking-wide">
+                For tired humans, desk zombies & anti-routine rebels
+              </p>
+            </div>
+
+            {/* CTA Section - Enhanced layout */}
+            <div className="space-y-8 pt-4">
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
+                <button 
+                  onClick={onJoinClick}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  className="group relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-black py-5 px-12 rounded-2xl shadow-2xl hover:shadow-3xl transform transition-all duration-300 hover:-translate-y-2 text-xl lg:text-2xl overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center gap-3">
+                    Join Now for ₹999
+                    <ArrowRight className={`w-6 h-6 transition-transform duration-300 ${isHovered ? 'translate-x-2' : ''}`} />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+                
+                {/* Timer - Enhanced design */}
+                <div className="bg-white/95 backdrop-blur-sm border-2 border-indigo-200 text-indigo-800 px-8 py-4 rounded-2xl shadow-xl">
+                  <div className="flex items-center justify-center gap-3 text-sm font-semibold mb-2">
+                    <Clock className="w-5 h-5" />
+                    <span>Offer ends in:</span>
+                  </div>
+                  <div className="font-black text-2xl lg:text-3xl tracking-widest text-center">
+                    {formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+                  </div>
                 </div>
               </div>
-              <p className="text-gray-600 font-medium text-sm">1000+ people have already joined</p>
+
+              {/* Social proof - Enhanced design */}
+              {/* <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+                <div className="flex items-center gap-6">
+                  <div className="flex -space-x-3">
+                    {userAvatars.map((avatar, index) => (
+                      <img
+                        key={index}
+                        alt={`User ${index + 1}`}
+                        className="w-14 h-14 rounded-full border-4 border-white shadow-lg object-cover"
+                        src={avatar}
+                      />
+                    ))}
+                    <div className="w-14 h-14 rounded-full border-4 border-white bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-black text-sm shadow-lg">
+                      +1K
+                    </div>
+                  </div>
+                  <div className="text-gray-700 text-center sm:text-left">
+                    <p className="font-black text-2xl">1000+</p>
+                    <p className="text-sm font-semibold text-gray-500">people joined</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 text-emerald-600">
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-emerald-400 text-emerald-400" />
+                    ))}
+                  </div>
+                  <span className="font-bold text-lg">4.9/5 rating</span>
+                </div>
+              </div> */}
             </div>
           </div>
 
-          {/* Right video section */}
-          <div className="flex justify-center lg:static">
-            {/* On desktop, absolutely position the video to align with left content */}
-            <div
-              className="relative w-full max-w-sm lg:max-w-md"
-              style={
-                leftContentHeight && leftContentTop !== undefined && window.innerWidth >= 1024
-                  ? {
-                      position: 'absolute',
-                      top: leftContentTop,
-                      height: leftContentHeight,
-                      right: 0,
-                      left: 'auto',
-                      width: '100%',
-                      maxWidth: '28rem', // Tailwind's max-w-md
-                    }
-                  : leftContentHeight
-                  ? { height: leftContentHeight }
-                  : {}
-              }
+          {/* Bottom content - 16:9 Video */}
+          <div className="w-full max-w-4xl mx-auto">
+            <div 
+              ref={videoRef}
+              className="relative w-full aspect-video group cursor-pointer"
+              onClick={onPlayClick}
             >
-              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl">
-                <img src='/yoga.png' alt='yoga' className='w-full h-full object-cover' />
-                {/* Video Overlay */}
-                <div className="absolute inset-0  backdrop-blur-xs flex flex-col justify-center items-center text-white p-8">
-                  {/* Timer badge */}
-                  <div className="absolute top-4 right-4 bg-black bg-opacity-50 text-white text-xs font-mono px-2 py-1 rounded-md">
-                    00:59
+              {/* Video container with 16:9 aspect ratio */}
+              <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-100 to-purple-100 group-hover:shadow-3xl transition-all duration-500">
+                <img 
+                  src='/yoga.png' 
+                  alt='Somatic movement demonstration' 
+                  className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' 
+                />
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90"></div>
+                
+                {/* Video duration badge */}
+                <div className="absolute top-6 right-6 bg-black/60 backdrop-blur-sm text-white text-sm font-bold px-4 py-2 rounded-full border border-white/20">
+                  02:34
+                </div>
+                
+                {/* Play button - Enhanced for 16:9 */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="w-24 h-24 bg-white/25 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/35 transition-all duration-300 group-hover:scale-110 shadow-2xl">
+                      <Play className="text-white w-10 h-10 ml-1" fill="white" />
+                    </div>
+                    
+                    {/* Animated rings */}
+                    <div className="absolute inset-0 rounded-full border-2 border-white/50 animate-ping"></div>
+                    <div className="absolute inset-0 rounded-full border border-white/40 animate-pulse"></div>
                   </div>
-                  {/* Play button */}
-                  <button
-                    className=" bg-opacity-20 backdrop-blur-sm rounded-full p-4 hover:bg-opacity-30 transition-all duration-300"
-                    onClick={onPlayClick}
-                    aria-label="Play video"
-                  >
-                    <Play className="text-white w-12 h-12" />
-                  </button>
-                  {/* Overlay text */}
-                  <div className="text-center mt-4">
-                    <h3 className="text-xl font-bold">Watch: Your Journey to Wellness</h3>
-                    <p className="text-sm opacity-80">See how the 7-day program transforms lives</p>
-                  </div>
+                </div>
+                
+                {/* Bottom content */}
+                <div className="absolute bottom-8 left-8 right-8 text-white">
+                  <h3 className="text-2xl lg:text-3xl font-bold mb-3">Your Journey to Wellness</h3>
+                  <p className="text-base lg:text-lg opacity-95 leading-relaxed font-medium">
+                    Discover how 10 minutes of somatic movement can transform your daily life and reconnect you with your body
+                  </p>
                 </div>
               </div>
             </div>
