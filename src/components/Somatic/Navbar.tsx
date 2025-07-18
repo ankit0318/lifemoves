@@ -55,11 +55,11 @@ export default function Navbar() {
         </div>
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {menuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
         </button>
       </div>
       {/* Mobile Menu */}
