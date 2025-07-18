@@ -7,7 +7,6 @@ const navLinks = [
   { name: 'Challenge', href: '#challenge' },
   { name: 'Testimonials', href: '#testimonials' },
   { name: 'FAQ', href: '#faq' },
-  { name: 'Join', href: '#join' },
 ];
 
 function handleNavClick(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string, setMenuOpen: (open: boolean) => void) {
@@ -26,24 +25,33 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white/80 backdrop-blur-md border-b border-gray-100 fixed top-0 left-0 z-50">
+    <nav className="w-full from-indigo-50 via-white to-purple-50 backdrop-blur-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="#" className="flex items-center gap-2 font-extrabold text-xl text-indigo-700">
-          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">LifeMoves</span>
+        <Link href="#" className="flex items-center gap-2 font-extrabold text-3xl text-indigo-700">
+          <img src='/lifemoves.webp' alt='LifeMoves' className='md:w-44 md:h-20 w-32 h-14' />
         </Link>
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Nav Links Centered */}
+        <div className="hidden md:flex flex-1 items-center justify-center gap-8">
           {navLinks.map(link => (
             <a
               key={link.name}
               href={link.href}
-              className="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-200"
+              className="text-gray-500 hover:text-gray-900 font-medium text-md transition-colors duration-200"
               onClick={e => handleNavClick(e, link.href, () => {})}
             >
               {link.name}
             </a>
           ))}
+        </div>
+        {/* Join Button Desktop */}
+        <div className="hidden md:block ml-4">
+          <a
+            href="#join"
+            className="bg-gray-900 text-white px-6 py-1 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg"
+          >
+            Join
+          </a>
         </div>
         {/* Mobile Hamburger */}
         <button
@@ -68,6 +76,13 @@ export default function Navbar() {
                 {link.name}
               </a>
             ))}
+            <a
+              href="#join"
+              className="mt-4 bg-gray-900 text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg text-center"
+              onClick={() => setMenuOpen(false)}
+            >
+              Join
+            </a>
           </div>
         </div>
       )}

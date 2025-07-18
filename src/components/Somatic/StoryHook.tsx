@@ -8,6 +8,13 @@ import {
   Smile,
   ArrowRight,
 } from 'lucide-react';
+import { Poppins } from 'next/font/google';
+
+// const poppins = Poppins({
+//   subsets: ['latin'],
+//   weight: ['400', '500', '700'],
+//   variable: '--font-poppins',
+// });
 
 const problems = [
   {
@@ -36,7 +43,7 @@ const problems = [
   },
   {
     icon: Smile,
-    text: 'Yoga is for your cousin… not you',
+    text: 'Yoga is for your cousin... not you',
     bg: 'bg-green-100',
     color: 'text-green-500',
   },
@@ -44,51 +51,47 @@ const problems = [
 
 export default function StoryHook() {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gray-50 text-gray-800 font-sans">
-      <main className="py-16 px-4 md:px-6 flex-1">
-        <header className="text-center mb-14">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight font-[Poppins]">
-            Your body's been trying to tell you things.
+    <div className="bg-gray-50 text-gray-800 font-[Poppins] min-h-screen py-24 sm:py-32 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight font-poppins">
+            Your body's been trying <br className="hidden md:block" /> to tell you things.
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 mt-4 font-medium font-[Poppins]">
-            You've just been... <span className="font-semibold italic text-purple-700">busy.</span>
+          <p className="text-xl text-gray-500 mt-4 font-[Poppins]">
+            You've just been... <span className="text-purple-600 font-semibold">busy.</span>
           </p>
-        </header>
-        <div className="max-w-3xl mx-auto space-y-5">
-          {problems.map((problem, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-6 rounded-2xl shadow-md flex items-center space-x-4 hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className={`${problem.bg} p-3 rounded-full`}>
-                <problem.icon className={`w-7 h-7 ${problem.color}`} aria-hidden="true" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Problems Card */}
+          <div className="md:col-span-2 bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+            {problems.map((problem, idx) => (
+              <div
+                key={idx}
+                className={`flex items-center gap-4 mb-6 last:mb-0`}
+              >
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center ${problem.bg}`}>
+                  <problem.icon className={`w-7 h-7 ${problem.color}`} aria-hidden="true" />
+                </div>
+                <p className="text-lg text-gray-700 font-[Poppins]">{problem.text}</p>
               </div>
-              <p className="text-gray-700 flex-1 text-base md:text-lg font-[Poppins] font-medium tracking-normal">
-                {problem.text}
-              </p>
-            </div>
-          ))}
-
-          {/* Solution Card Section */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full mx-auto mt-10">
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 font-[Poppins]">
-                So what do you do when your body's clearly done, but you're not sure what will actually help?
-              </h2>
-            </div>
-            <div className="space-y-4">
-              <a className="flex items-center p-4 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-300 group cursor-pointer" tabIndex={0}>
-                <ArrowRight className="w-6 h-6 text-indigo-500 mr-4 group-hover:translate-x-1 transition-transform duration-200" />
-                <span className="text-gray-700 font-medium font-[Poppins]">You stop outsourcing your wellbeing.</span>
-              </a>
-              <a className="flex items-center p-4 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-300 group cursor-pointer" tabIndex={0}>
-                <ArrowRight className="w-6 h-6 text-indigo-500 mr-4 group-hover:translate-x-1 transition-transform duration-200" />
-                <span className="text-gray-700 font-medium font-[Poppins]">You tune in.</span>
-              </a>
-            </div>
+            ))}
+          </div>
+          {/* Solution Card */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center font-[Poppins]">
+              So what do you do when your body's clearly done, but you're not sure what will actually help?
+            </h2>
+            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl mb-4 transition-colors cursor-pointer" tabIndex={0}>
+              <span className="text-lg font-[Poppins]">You stop outsourcing your wellbeing.</span>
+              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
+            </a>
+            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl transition-colors cursor-pointer" tabIndex={0}>
+              <span className="text-lg font-[Poppins]">You tune in.</span>
+              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
+            </a>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
