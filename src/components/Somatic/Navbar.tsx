@@ -28,8 +28,8 @@ export default function Navbar() {
     <nav className="w-full from-indigo-50 via-white to-purple-50 backdrop-blur-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="#" className="flex items-center gap-2 font-extrabold text-3xl text-indigo-700">
-          <img src='/lifemoves.webp' alt='LifeMoves' className='md:w-44 md:h-20 w-32 h-14' />
+        <Link href="#" className="flex items-center font-extrabold text-3xl text-indigo-700 flex-shrink-0">
+          <img src='/lifemoves.webp' alt='LifeMoves' className='h-10 w-auto sm:h-12 md:h-14 lg:h-16 object-contain' />
         </Link>
         {/* Desktop Nav Links Centered */}
         <div className="hidden md:flex flex-1 items-center justify-center gap-8">
