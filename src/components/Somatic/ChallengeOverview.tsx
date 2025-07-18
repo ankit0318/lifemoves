@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { 
   Zap, 
   Smile, 
@@ -19,55 +17,55 @@ export default function ChallengeOverview() {
       title: "Breath Reset",
       description: "Wake up your nervous system from within",
       icon: Zap,
-      color: "bg-blue-100 text-blue-600"
+      color: "bg-blue-500 text-white"
     },
     {
       day: 2,
       title: "Shoulder Detox",
       description: "Undo 100 Zoom calls",
       icon: Smile,
-      color: "bg-green-100 text-green-600"
+      color: "bg-green-500 text-white"
     },
     {
       day: 3,
       title: "Spine Awakening",
       description: "From slouch to spring",
       icon: ArrowUp,
-      color: "bg-purple-100 text-purple-600"
+      color: "bg-purple-500 text-white"
     },
     {
       day: 4,
       title: "Emotional Unwinding",
       description: "Release the tight chest energy",
       icon: Heart,
-      color: "bg-pink-100 text-pink-600"
+      color: "bg-pink-500 text-white"
     },
     {
       day: 5,
       title: "Energy Recharge",
       description: "Restore natural stamina",
       icon: Battery,
-      color: "bg-yellow-100 text-yellow-600"
+      color: "bg-yellow-500 text-white"
     },
     {
       day: 6,
       title: "Body Boundaries",
       description: "Learn to say \"no\" with your nervous system",
       icon: Shield,
-      color: "bg-red-100 text-red-600"
+      color: "bg-red-500 text-white"
     },
     {
       day: 7,
       title: "Full Integration",
       description: "Feel it all come together — with less effort",
       icon: Sparkles,
-      color: "bg-indigo-100 text-indigo-600"
+      color: "bg-indigo-500 text-white"
     }
   ];
 
   return (
     <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,31 +86,40 @@ export default function ChallengeOverview() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        {/* Vertical Timeline */}
+        <div className="relative max-w-2xl mx-auto">
+          {/* Vertical Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-200 via-purple-300 to-purple-400 h-full rounded-full"></div>
+          
           {challengeDays.map((day, index) => (
             <motion.div
               key={day.day}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group"
-              whileHover={{ scale: 1.05, y: -5 }}
+              className="relative flex items-center justify-center mb-12 last:mb-0"
             >
-              <Card className="h-full hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                  <div className={`p-4 rounded-full ${day.color} mb-4`}>
-                    <day.icon className="w-10 h-10" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Day {day.day}: {day.title}
-                  </h3>
-                  <p className="text-gray-600 flex-grow">
-                    {day.description}
-                  </p>
-                  <div className="mt-4 text-sm text-gray-500 font-medium">10 min session</div>
-                </CardContent>
-              </Card>
+              {/* Icon Circle */}
+              <div className="relative z-10">
+                <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${day.color} flex items-center justify-center shadow-lg border-4 border-white`}>
+                  <day.icon className="w-8 h-8 md:w-10 md:h-10" />
+                </div>
+                {/* Day Number Badge */}
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-purple-300 rounded-full flex items-center justify-center">
+                  <span className="text-xs font-bold text-purple-600">{day.day}</span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-20 md:top-24 text-center max-w-xs md:max-w-sm">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                  {day.title}
+                </h3>
+                <p className="text-sm md:text-base text-gray-600">
+                  {day.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -122,7 +129,7 @@ export default function ChallengeOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-green-100 px-6 py-3 rounded-full">
             <Sparkles className="w-5 h-5 text-purple-600" />
