@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { 
   Zap, 
   Smile, 
@@ -67,7 +65,7 @@ export default function ChallengeOverview() {
 
   return (
     <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,33 +86,67 @@ export default function ChallengeOverview() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {challengeDays.map((day, index) => (
-            <motion.div
-              key={day.day}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <Card className="h-full hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                  <div className={`p-4 rounded-full ${day.color} mb-4`}>
-                    <day.icon className="w-10 h-10" />
+        {/* Timeline Container */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 h-full rounded-full"></div>
+          
+          {/* Timeline Items */}
+          <div className="space-y-12 md:space-y-16">
+            {challengeDays.map((day, index) => (
+              <motion.div
+                key={day.day}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative flex items-center justify-center"
+              >
+                {/* Icon Container */}
+                <div className="relative z-10">
+                  <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${day.color} flex items-center justify-center shadow-lg border-4 border-white`}>
+                    <day.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Day {day.day}: {day.title}
-                  </h3>
-                  <p className="text-gray-600 flex-grow">
-                    {day.description}
-                  </p>
-                  <div className="mt-4 text-sm text-gray-500 font-medium">10 min session</div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </div>
+
+                {/* Content - Left side for odd items, right side for even items */}
+                <div className={`absolute w-full flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                  <div className={`w-full max-w-xs md:max-w-sm ${index % 2 === 0 ? 'ml-24 md:ml-32' : 'mr-24 md:mr-32'}`}>
+                    <div className={`bg-white rounded-xl shadow-lg p-6 border border-gray-100 ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm font-bold text-purple-600 bg-purple-100 px-2 py-1 rounded-full">
+                          Day {day.day}
+                        </span>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+                        {day.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm md:text-base">
+                        {day.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Layout - Stack vertically */}
+                <div className="md:hidden absolute top-20 left-1/2 transform -translate-x-1/2 w-full max-w-xs">
+                  <div className="bg-white rounded-xl shadow-lg p-4 border border-gray-100 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-2">
+                      <span className="text-sm font-bold text-purple-600 bg-purple-100 px-2 py-1 rounded-full">
+                        Day {day.day}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                      {day.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {day.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         <motion.div
@@ -122,7 +154,7 @@ export default function ChallengeOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-green-100 px-6 py-3 rounded-full">
             <Sparkles className="w-5 h-5 text-purple-600" />
