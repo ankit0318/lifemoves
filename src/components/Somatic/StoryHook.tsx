@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Coffee,
   Moon,
@@ -49,7 +49,45 @@ const problems = [
   },
 ];
 
+const scenes = [
+  {
+    image: '/pose1.png',
+    text: 'Constant back pain from sitting all day',
+  },
+  {
+    image: '/pose2.png',
+    text: 'Tired even after sleeping',
+  },
+  {
+    image: '/pose3.png',
+    text: 'Workouts that feel like punishment',
+  },
+  {
+    image: '/pose4.png',
+    text: 'Burnt out and always on edge',
+  },
+  {
+    image: '/pose5.png',
+    text: 'Tried yoga, gym, HIIT, even meditation—nothing sticks.',
+  },
+  {
+    image: '/pose6.png',
+    text: 'Running on low battery all the time.',
+  },
+];
+
 export default function StoryHook() {
+  const [sceneIndex, setSceneIndex] = useState(0);
+  const currentScene = scenes[sceneIndex];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSceneIndex((prev) => (prev + 1) % scenes.length);
+    }, 1700); // Change scene every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="bg-gray-50 text-gray-800 font-[Poppins] min-h-screen py-24 sm:py-32 px-4">
       <div className="max-w-6xl mx-auto">
@@ -61,9 +99,28 @@ export default function StoryHook() {
             You've just been... <span className="text-purple-600 font-semibold">busy.</span>
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Problems Card */}
-          <div className="md:col-span-2 bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300">
+        <div className="flex flex-col items-center w-full">
+          <img
+            src={currentScene.image}
+            alt="Person stretching"
+            className="mx-auto w-96 h-auto transition-opacity duration-500 ease-in-out"
+            style={{ objectFit: 'cover' }}
+          />
+          <p
+            className="mt-8 text-2xl md:text-3xl font-semibold rounded-3xl font-sans text-black text-center px-6 py-4 transition-opacity duration-500 ease-in-out"
+            style={{
+              letterSpacing: '0.01em',
+              textShadow: '0 2px 8px rgba(80, 0, 80, 0.08)',
+              maxWidth: '32rem',
+              backdropFilter: 'blur(2px)',
+              whiteSpace: 'pre-line',
+            }}
+          >
+            {currentScene.text}
+          </p>
+        </div>
+        {/* Problems Card */}
+        {/* <div className="md:col-span-2 bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300">
             {problems.map((problem, idx) => (
               <div
                 key={idx}
@@ -75,9 +132,9 @@ export default function StoryHook() {
                 <p className="text-lg text-gray-700 font-[Poppins]">{problem.text}</p>
               </div>
             ))}
-          </div>
-          {/* Solution Card */}
-          <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-center">
+          </div> */}
+        {/* Solution Card */}
+        {/* <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center font-[Poppins]">
               So what do you do when your body's clearly done, but you're not sure what will actually help?
             </h2>
@@ -89,8 +146,7 @@ export default function StoryHook() {
               <span className="text-lg font-[Poppins]">You tune in.</span>
               <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
             </a>
-          </div>
-        </div>
+          </div> */}
       </div>
     </div>
   );
