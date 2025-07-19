@@ -53,26 +53,32 @@ const scenes = [
   {
     image: '/pose1.png',
     text: 'Constant back pain from sitting all day',
+    description: 'Your body aches even when you haven’t moved much.'
   },
   {
     image: '/pose2.png',
     text: 'Tired even after sleeping',
+    description: 'Rest doesn’t feel like rest anymore.'
   },
   {
     image: '/pose3.png',
     text: 'Workouts that feel like punishment',
+    description: 'Every session drains you instead of lifting you up.'
   },
   {
     image: '/pose4.png',
     text: 'Burnt out and always on edge',
+    description: 'Overwhelmed by stress and anxiety that never seems to fully go away.'
   },
   {
     image: '/pose5.png',
     text: 'Tried yoga, gym, HIIT, even meditation—nothing sticks.',
+    description: 'You’ve tried everything, but nothing feels sustainable.'
   },
   {
-    image: '/pose6.png',
+    image: '/pose5.png',
     text: 'Running on low battery all the time.',
+    description: 'Drained and sluggish, even after a full night\'s rest.'
   },
 ];
 
@@ -99,54 +105,63 @@ export default function StoryHook() {
             You've just been... <span className="text-purple-600 font-semibold">busy.</span>
           </p>
         </div>
-        <div className="flex flex-col items-center w-full">
-          <img
-            src={currentScene.image}
-            alt="Person stretching"
-            className="mx-auto w-96 h-auto transition-opacity duration-500 ease-in-out"
-            style={{ objectFit: 'cover' }}
-          />
-          <p
-            className="mt-8 text-2xl md:text-3xl font-semibold rounded-3xl font-sans text-black text-center px-6 py-4 transition-opacity duration-500 ease-in-out"
-            style={{
-              letterSpacing: '0.01em',
-              textShadow: '0 2px 8px rgba(80, 0, 80, 0.08)',
-              maxWidth: '32rem',
-              backdropFilter: 'blur(2px)',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            {currentScene.text}
-          </p>
-        </div>
-        {/* Problems Card */}
-        {/* <div className="md:col-span-2 bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300">
-            {problems.map((problem, idx) => (
+        {/* Responsive Layout: Mobile = stacked, Desktop = 3-column */}
+        <div className="w-full flex flex-col items-center md:grid md:grid-cols-3 md:gap-8 md:items-stretch">
+          {/* Left column: first 3 text+desc */}
+          <div className="hidden md:flex flex-col justify-between py-4">
+            {scenes.slice(0, 3).map((scene, idx) => (
               <div
-                key={idx}
-                className={`flex items-center gap-4 mb-6 last:mb-0`}
+                key={scene.text}
+                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx ? 'opacity-100 blur-0' : 'opacity-60 blur-sm'}`}
               >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center ${problem.bg}`}>
-                  <problem.icon className={`w-7 h-7 ${problem.color}`} aria-hidden="true" />
-                </div>
-                <p className="text-lg text-gray-700 font-[Poppins]">{problem.text}</p>
+                <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
+                <p className="text-gray-500 text-base">{scene.description}</p>
               </div>
             ))}
-          </div> */}
-        {/* Solution Card */}
-        {/* <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center font-[Poppins]">
-              So what do you do when your body's clearly done, but you're not sure what will actually help?
-            </h2>
-            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl mb-4 transition-colors cursor-pointer" tabIndex={0}>
-              <span className="text-lg font-[Poppins]">You stop outsourcing your wellbeing.</span>
-              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
-            </a>
-            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl transition-colors cursor-pointer" tabIndex={0}>
-              <span className="text-lg font-[Poppins]">You tune in.</span>
-              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
-            </a>
-          </div> */}
+          </div>
+          {/* Center column: images */}
+          <div className="flex flex-col items-center justify-center relative py-4">
+            <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
+              {scenes.map((scene, idx) => (
+                <img
+                  key={scene.image + idx}
+                  src={scene.image}
+                  alt={scene.text}
+                  className={`absolute top-0 left-0 w-72 h-72 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg transition-all duration-700 ${sceneIndex === idx ? ' z-20' : ' z-10'}`}
+                  
+                />
+              ))}
+            </div>
+            {/* Mobile: show only current text+desc below image */}
+            <div className="md:hidden mt-8 w-full">
+              <h3 className="text-2xl font-semibold mb-2 text-center">{currentScene.text}</h3>
+              <p className="text-gray-500 text-lg text-center">{currentScene.description}</p>
+            </div>
+        </div>
+          {/* Right column: last 3 text+desc */}
+          <div className="hidden md:flex flex-col justify-between py-4">
+            {scenes.slice(3, 6).map((scene, idx) => (
+              <div
+                key={scene.text}
+                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx + 3 ? 'opacity-100 blur-0' : 'opacity-60 blur-sm'}`}
+              >
+                <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
+                <p className="text-gray-500 text-base">{scene.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Progress dots for navigation (optional, desktop+mobile) */}
+        <div className="flex justify-center gap-2 mt-8">
+          {scenes.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setSceneIndex(idx)}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${sceneIndex === idx ? 'bg-purple-600' : 'bg-gray-300 hover:bg-gray-400'}`}
+              aria-label={`Go to scene ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

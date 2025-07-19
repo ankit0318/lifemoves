@@ -11,6 +11,7 @@ import FAQSection from './FAQSection';
 import FinalCTA from './FinalCta';
 import StickyMobileCTA from './StickyMobileCta';
 import Navbar from './Navbar';
+import StoryHook2 from './StoryHook2';
 
 export default function SomaticChallengePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -49,6 +50,7 @@ export default function SomaticChallengePage() {
         </div>
         <div id="challenge">
           <StoryHook />
+          {/* <StoryHook2 /> */}
           <ChallengeOverview />
         </div>
         <WhoItsFor />
