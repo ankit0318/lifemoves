@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { 
   Zap, 
   Smile, 
@@ -19,61 +17,69 @@ export default function ChallengeOverview() {
       title: "Breath Reset",
       description: "Wake up your nervous system from within",
       icon: Zap,
-      color: "bg-blue-100 text-blue-600"
+      color: "bg-blue-100 text-blue-600",
+      illustration:<img src="/i1.jpeg" alt="Day 1" className="w-24 h-24" />
     },
     {
       day: 2,
       title: "Shoulder Detox",
       description: "Undo 100 Zoom calls",
       icon: Smile,
-      color: "bg-green-100 text-green-600"
+      color: "bg-green-100 text-green-600",
+      illustration:<img src="/i2.jpeg" alt="Day 2" className="w-24 h-24" />
     },
     {
       day: 3,
       title: "Spine Awakening",
       description: "From slouch to spring",
       icon: ArrowUp,
-      color: "bg-purple-100 text-purple-600"
+      color: "bg-purple-100 text-purple-600",
+      illustration:<img src="/i3.jpeg" alt="Day 3" className="w-24 h-24" />
     },
     {
       day: 4,
       title: "Emotional Unwinding",
       description: "Release the tight chest energy",
       icon: Heart,
-      color: "bg-pink-100 text-pink-600"
+      color: "bg-pink-100 text-pink-600",
+      illustration:<img src="/i4.jpeg" alt="Day 4" className="w-24 h-24" />
     },
     {
       day: 5,
       title: "Energy Recharge",
       description: "Restore natural stamina",
       icon: Battery,
-      color: "bg-yellow-100 text-yellow-600"
+      color: "bg-yellow-100 text-yellow-600",
+      illustration:<img src="/i5.jpeg" alt="Day 5" className="w-24 h-24" />
     },
     {
       day: 6,
       title: "Body Boundaries",
       description: "Learn to say \"no\" with your nervous system",
       icon: Shield,
-      color: "bg-red-100 text-red-600"
+      color: "bg-red-100 text-red-600",
+      illustration:<img src="/i6.jpeg" alt="Day 6" className="w-24 h-24" />
     },
     {
       day: 7,
       title: "Full Integration",
       description: "Feel it all come together — with less effort",
       icon: Sparkles,
-      color: "bg-indigo-100 text-indigo-600"
+      color: "bg-indigo-100 text-indigo-600",
+      illustration:<img src="/i7.jpeg" alt="Day 7" className="w-24 h-24" />
     }
   ];
 
+
   return (
     <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-28"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             The 7-Day Somatic Reset
@@ -88,33 +94,107 @@ export default function ChallengeOverview() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {challengeDays.map((day, index) => (
-            <motion.div
-              key={day.day}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <Card className="h-full hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-6 flex flex-col items-center text-center h-full">
-                  <div className={`p-4 rounded-full ${day.color} mb-4`}>
-                    <day.icon className="w-10 h-10" />
+        <div className="relative">
+          {/* Desktop Timeline vertical line */}
+          <div className="hidden md:block absolute left-1/2 top-5 w-1 bg-gray-200 h-full -translate-x-1/2 z-0" aria-hidden="true" />
+          
+          {/* Mobile Timeline vertical line - positioned on the left */}
+          <div className="md:hidden absolute left-16 top-2 w-1 bg-gray-200 h-full z-0" aria-hidden="true" />
+          
+          <div className="flex flex-col gap-12 relative z-10">
+            {challengeDays.map((day, index) => {
+              const Icon = day.icon;
+              const isLeftText = index % 2 === 0;
+              return (
+                <motion.div
+                  key={day.day}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 md:grid-cols-3 items-center gap-6"
+                >
+                  {/* Desktop Layout (unchanged) */}
+                  {/* Left side: text or illustration */}
+                  <div className="hidden md:flex justify-end">
+                    {isLeftText ? (
+                      <div className="flex flex-col items-end text-right max-w-xs">
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        {day.title}
+                        </h3>
+                        <p className="text-gray-600 mb-2">
+                          {day.description}
+                        </p>
+                      </div>
+                    ) : (
+                      <div className=" ">
+                        {day.illustration}
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Day {day.day}: {day.title}
-                  </h3>
-                  <p className="text-gray-600 flex-grow">
-                    {day.description}
-                  </p>
-                  <div className="mt-4 text-sm text-gray-500 font-medium">10 min session</div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                  
+                  {/* Desktop Timeline step (center) */}
+                  <div className="hidden md:flex flex-col items-center relative z-10">
+                    <div className={`w-24 h-12 flex items-center justify-center rounded-4xl border-4 border-white shadow-md ${day.color} font-bold text-lg mb-2`}> 
+                      {'Day ' + day.day}
+                    </div>
+                    {/* Timeline connector */}
+                    {index < challengeDays.length - 1 && (
+                      <div className="w-1 h-full bg-gray-200 flex-1" />
+                    )}
+                  </div>
+                  
+                  {/* Desktop Right side: illustration or text */}
+                  <div className="hidden md:flex justify-start">
+                    {isLeftText ? (
+                      <div className="">
+                        {day.illustration}
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-start text-left max-w-xs">
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                           {day.title}
+                        </h3>
+                        <p className="text-gray-600 mb-2">
+                          {day.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Mobile Layout - Enhanced with left timeline */}
+                  <div className="md:hidden flex items-start gap-6 pl-4 pr-2">
+                    {/* Mobile Timeline step (left positioned) */}
+                    <div className="flex flex-col items-center relative z-10 flex-shrink-0">
+                      <div className="w-24   h-24 rounded-full overflow-hidden border-1  border-white shadow-lg bg-white p-1"> 
+                        <div className="w-full h-full rounded-full overflow-hidden justify-center items-center flex">
+                          {day.illustration}
+                        </div>
+                      </div>
+                    
+                     
+                    </div>
+                    
+                    {/* Mobile Content (right side) */}
+                    <div className="flex-1 pt-2 pb-4">
+                      <div className="mb-4">
+                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-3 ${day.color}`}>
+                          <Icon className="w-4 h-4" />
+                          <span>Day {day.day}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                          {day.title}
+                        </h3>
+                        <p className="text-gray-600 text-base leading-relaxed">
+                          {day.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         <motion.div
@@ -122,7 +202,7 @@ export default function ChallengeOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-green-100 px-6 py-3 rounded-full">
             <Sparkles className="w-5 h-5 text-purple-600" />

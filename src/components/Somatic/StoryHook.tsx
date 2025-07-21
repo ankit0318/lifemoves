@@ -163,6 +163,20 @@ export default function StoryHook() {
           ))}
         </div>
       </div>
+      {/* Solution Card */}
+      {/* <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col justify-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center font-[Poppins]">
+              So what do you do when your body's clearly done, but you're not sure what will actually help?
+            </h2>
+            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl mb-4 transition-colors cursor-pointer" tabIndex={0}>
+              <span className="text-lg font-[Poppins]">You stop outsourcing your wellbeing.</span>
+              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
+            </a>
+            <a className="group flex items-center justify-between w-full bg-gray-100 hover:bg-gray-200 text-gray-800 p-4 rounded-xl transition-colors cursor-pointer" tabIndex={0}>
+              <span className="text-lg font-[Poppins]">You tune in.</span>
+              <ArrowRight className="w-6 h-6 text-gray-500 group-hover:text-gray-800 transition-colors" />
+            </a>
+          </div> */}
     </div>
   );
 }
