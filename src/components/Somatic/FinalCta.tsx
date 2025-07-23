@@ -34,7 +34,7 @@ export default function FinalCTA() {
             </h2>
             
             <p className="text-xl md:text-2xl text-gray-600 mb-4">
-              Let's change that — in just 10 minutes a day.
+              Let&apos;s change that — in just 10 minutes a day.
             </p>
             <div className="flex justify-center mb-12">
               <div className="w-auto">

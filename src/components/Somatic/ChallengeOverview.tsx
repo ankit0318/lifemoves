@@ -9,6 +9,7 @@ import {
   Shield, 
   Sparkles 
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function ChallengeOverview() {
   const challengeDays = [
@@ -18,7 +19,7 @@ export default function ChallengeOverview() {
       description: "Wake up your nervous system from within",
       icon: Zap,
       color: "bg-blue-100 text-blue-600",
-      illustration:<img src="/i1.jpeg" alt="Day 1" className="w-24 h-24" />
+      illustration:<Image src="/i1.jpeg" alt="Day 1" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 2,
@@ -26,7 +27,7 @@ export default function ChallengeOverview() {
       description: "Undo 100 Zoom calls",
       icon: Smile,
       color: "bg-green-100 text-green-600",
-      illustration:<img src="/i2.jpeg" alt="Day 2" className="w-24 h-24" />
+      illustration:<Image src="/i2.jpeg" alt="Day 2" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 3,
@@ -34,7 +35,7 @@ export default function ChallengeOverview() {
       description: "From slouch to spring",
       icon: ArrowUp,
       color: "bg-purple-100 text-purple-600",
-      illustration:<img src="/i3.jpeg" alt="Day 3" className="w-24 h-24" />
+      illustration:<Image src="/i3.jpeg" alt="Day 3" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 4,
@@ -42,7 +43,7 @@ export default function ChallengeOverview() {
       description: "Release the tight chest energy",
       icon: Heart,
       color: "bg-pink-100 text-pink-600",
-      illustration:<img src="/i4.jpeg" alt="Day 4" className="w-24 h-24" />
+      illustration:<Image src="/i4.jpeg" alt="Day 4" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 5,
@@ -50,7 +51,7 @@ export default function ChallengeOverview() {
       description: "Restore natural stamina",
       icon: Battery,
       color: "bg-yellow-100 text-yellow-600",
-      illustration:<img src="/i5.jpeg" alt="Day 5" className="w-24 h-24" />
+      illustration:<Image src="/i5.jpeg" alt="Day 5" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 6,
@@ -58,7 +59,7 @@ export default function ChallengeOverview() {
       description: "Learn to say \"no\" with your nervous system",
       icon: Shield,
       color: "bg-red-100 text-red-600",
-      illustration:<img src="/i6.jpeg" alt="Day 6" className="w-24 h-24" />
+      illustration:<Image src="/i6.jpeg" alt="Day 6" width={96} height={96} className="w-24 h-24" />
     },
     {
       day: 7,
@@ -66,7 +67,7 @@ export default function ChallengeOverview() {
       description: "Feel it all come together — with less effort",
       icon: Sparkles,
       color: "bg-indigo-100 text-indigo-600",
-      illustration:<img src="/i7.jpeg" alt="Day 7" className="w-24 h-24" />
+      illustration:<Image src="/i7.jpeg" alt="Day 7" width={96} height={96} className="w-24 h-24" />
     }
   ];
 

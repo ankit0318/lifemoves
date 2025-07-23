@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { Play, Sparkles, Users, Clock, ArrowRight, Star } from 'lucide-react'
+import Image from 'next/image';
 
 interface HeroSectionProps {
   videoSrc?: string
@@ -112,9 +113,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               onClick={onPlayClick}
             >
               <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-indigo-100 to-purple-100 group-hover:shadow-3xl transition-all duration-500">
-                <img 
+                <Image 
                   src='/yoga.png' 
                   alt='Somatic movement demonstration' 
+                  width={800}
+                  height={450}
                   className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90"></div>

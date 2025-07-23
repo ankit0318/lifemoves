@@ -4,7 +4,7 @@ const GuideSection3 = () => (
   <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 bg-white text-gray-800">
     <div className="text-center mb-16">
       <p className="text-sm tracking-widest text-gray-500 uppercase mb-2">— HELLO THERE!</p>
-      <h1 className="text-6xl sm:text-7xl font-bold text-gray-900">I'm Aman</h1>
+      <h1 className="text-6xl sm:text-7xl font-bold text-gray-900">I&apos;m Aman</h1>
       <p className="mt-4 text-lg text-gray-600">Holistic Wellness Professional | Educator | Interdisciplinary Artist</p>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-24">

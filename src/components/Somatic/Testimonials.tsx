@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const TestimonialSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -99,10 +100,12 @@ const TestimonialSection = () => {
               {/* Main Profile Card */}
               <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-2 rounded-3xl max-sm:rounded-full shadow-xl">
                 <div className="bg-white rounded-2xl overflow-hidden max-sm:rounded-full">
-                  <img 
+                  <Image 
                     alt={`${current.name}, ${current.title}`}
                     className="w-full h-36 md:h-64 object-cover"
                     src={current.image}
+                    width={256}
+                    height={144}
                   />
                 </div>
                 <h3 className="font-bold max-sm:hidden text-gray-800 text-center mt-2">{current.name}</h3>
@@ -171,10 +174,12 @@ const TestimonialSection = () => {
                     }`}
                     aria-label={`View testimonial from ${testimonial.name}`}
                   >
-                    <img 
+                    <Image 
                       alt={testimonial.name}
                       className="w-full h-full object-cover rounded-lg"
                       src={testimonial.image}
+                      width={64}
+                      height={64}
                     />
                   </button>
                 ))}

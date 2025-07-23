@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const WhoItsFor = () => {
   const [currentIndex, setCurrentIndex] = useState(2);
@@ -110,10 +111,11 @@ const WhoItsFor = () => {
               onClick={() => setCurrentIndex(index)}
             >
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover"
+                  layout="fill"
+                  objectFit="cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">

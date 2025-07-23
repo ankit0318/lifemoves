@@ -9,7 +9,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { Poppins } from 'next/font/google';
-
+import Image from 'next/image';
 
 
 const scenes = [
@@ -86,12 +86,13 @@ export default function StoryHook() {
           <div className="flex flex-col items-center justify-center relative py-4">
             <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
               {scenes.map((scene, idx) => (
-                <img
+                <Image
                   key={scene.image + idx}
                   src={scene.image}
                   alt={scene.text}
+                  width={320}
+                  height={320}
                   className={`absolute top-0 left-0 w-72 h-72 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg transition-all duration-700 ${sceneIndex === idx ? ' z-20' : ' z-10'}`}
-                  
                 />
               ))}
             </div>
