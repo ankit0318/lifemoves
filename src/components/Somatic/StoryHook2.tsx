@@ -1,20 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  Coffee,
-  Moon,
-  Dumbbell,
-  Brain,
-  Smile,
-  ChevronLeft,
-  ChevronRight,
-} from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
-// const poppins = Poppins({
-//   subsets: ['latin'],
-//   weight: ['400', '500', '700'],
-//   variable: '--font-poppins',
-// });
 
 const scenes = [
   {
@@ -96,10 +84,10 @@ export default function StoryHook() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight font-poppins">
-            Your body's been trying <br className="hidden md:block" /> to tell you things.
+            Your body&apos;s been trying <br className="hidden md:block" /> to tell you things.
           </h1>
           <p className="text-xl text-gray-500 mt-4 font-[Poppins]">
-            You've just been... <span className="text-purple-600 font-semibold">busy.</span>
+            You&apos;ve just been... <span className="text-purple-600 font-semibold">busy.</span>
           </p>
         </div>
         
@@ -108,9 +96,11 @@ export default function StoryHook() {
          
 
           {/* Image */}
-          <img
+          <Image
             src={currentScene.image}
             alt="Person stretching"
+            width={384}
+            height={384}
             className="mx-auto w-96 h-auto"
             style={{ objectFit: 'cover' }}
           />

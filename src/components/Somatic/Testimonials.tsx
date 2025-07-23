@@ -75,14 +75,14 @@ const TestimonialSection = () => {
           <div className="block lg:hidden w-full md:mb-6">
             <div className="relative bg-white p-8 rounded-3xl shadow-lg md:mb-8">
               <p className="text-gray-700 text-lg max-sm:text-2xl leading-relaxed max-sm:leading-8">
-                "{current.quote.split('Thank you').map((part, index) => 
+                &quot;{current.quote.split('Thank you').map((part, index) => 
                   index === 0 ? part : (
                     <span key={index}>
                       <span className="font-bold text-indigo-600">Thank you</span>
                       {part}
                     </span>
                   )
-                )}"
+                )}&quot;
               </p>
               {/* Speech Bubble Tail */}
               <div className="absolute -bottom-4 max-sm:hidden left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
@@ -141,14 +141,14 @@ const TestimonialSection = () => {
             <div className="hidden lg:block">
               <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-8">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  "{current.quote.split('Thank you').map((part, index) => 
+                  &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
                       <span key={index}>
                         <span className="font-bold text-indigo-600">Thank you</span>
                         {part}
                       </span>
                     )
-                  )}"
+                  )}&quot;
                 </p>
                 {/* Speech Bubble Tail */}
                 <div className="absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>

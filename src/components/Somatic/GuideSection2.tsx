@@ -8,7 +8,7 @@ export default function GuideSection2() {
           {/* Left Column: Text & Stats */}
           <div className="md:w-1/2 text-gray-800 md:pr-16">
             <p className="text-3xl font-bold tracking-widest  text-gray-500 uppercase mb-2">Hello</p>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">I'M AMAN</h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">I&apos;M AMAN</h1>
             <p className="text-gray-600 mb-10 text-base md:text-lg leading-relaxed">
             After experiencing chronic pain and stress from years of corporate life, I discovered the transformative power of somatic movement. What started as my personal healing journey has now become my mission to help others in our Indian community.
             </p>

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { Play, Sparkles, ArrowRight } from 'lucide-react'
 import Image from 'next/image';
 

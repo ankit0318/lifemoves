@@ -42,7 +42,7 @@ export default function GuideSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Namaste, I'm Aman 🙏
+                  Namaste, I&apos;m Aman 🙏
                 </h3>
                 <p className="text-lg text-gray-500 leading-relaxed mb-6">
                   After experiencing chronic pain and stress from years of corporate life, I discovered the transformative power of somatic movement. What started as my personal healing journey has now become my mission to help others in our Indian community.
