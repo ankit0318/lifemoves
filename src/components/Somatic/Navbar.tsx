@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const navLinks = [
   { name: 'Home', href: '#' },

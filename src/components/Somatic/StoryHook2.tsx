@@ -33,7 +33,7 @@ const scenes = [
 
 export default function StoryHook() {
   const [sceneIndex, setSceneIndex] = useState(0);
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [isAutoScrolling] = useState(true);
   const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
   const currentScene = scenes[sceneIndex];
 
