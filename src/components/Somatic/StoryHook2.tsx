@@ -6,50 +6,15 @@ import {
   Dumbbell,
   Brain,
   Smile,
-  ArrowRight,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
-import { Poppins } from 'next/font/google';
 
 // const poppins = Poppins({
 //   subsets: ['latin'],
 //   weight: ['400', '500', '700'],
 //   variable: '--font-poppins',
 // });
-
-const problems = [
-  {
-    icon: Coffee,
-    text: 'Sitting too long but stretching feels like solving equations',
-    bg: 'bg-orange-100',
-    color: 'text-orange-500',
-  },
-  {
-    icon: Moon,
-    text: 'Tired even after sleeping',
-    bg: 'bg-blue-100',
-    color: 'text-blue-500',
-  },
-  {
-    icon: Dumbbell,
-    text: 'Workouts that feel like punishment',
-    bg: 'bg-red-100',
-    color: 'text-red-500',
-  },
-  {
-    icon: Brain,
-    text: 'Meditation makes you itch',
-    bg: 'bg-purple-100',
-    color: 'text-purple-500',
-  },
-  {
-    icon: Smile,
-    text: 'Yoga is for your cousin... not you',
-    bg: 'bg-green-100',
-    color: 'text-green-500',
-  },
-];
 
 const scenes = [
   {

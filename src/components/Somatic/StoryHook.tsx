@@ -1,14 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import {
-  Coffee,
-  Moon,
-  Dumbbell,
-  Brain,
-  Smile,
-  ArrowRight,
-} from 'lucide-react';
-import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 
 

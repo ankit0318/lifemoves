@@ -1,63 +1,20 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Play, Sparkles, Users, Clock, ArrowRight, Star } from 'lucide-react'
+import { Play, Sparkles, ArrowRight } from 'lucide-react'
 import Image from 'next/image';
 
 interface HeroSectionProps {
-  videoSrc?: string
   onJoinClick?: () => void
   onPlayClick?: () => void
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
-  videoSrc = '/placeholder-video.mp4',
   onJoinClick,
   onPlayClick
 }) => {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 47,
-    seconds: 54
-  })
-
   const [isHovered, setIsHovered] = useState(false)
   const videoRef = useRef<HTMLDivElement>(null)
-
-  // Timer countdown effect
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { hours, minutes, seconds } = prev
-        
-        if (seconds > 0) {
-          seconds--
-        } else if (minutes > 0) {
-          minutes--
-          seconds = 59
-        } else if (hours > 0) {
-          hours--
-          minutes = 59
-          seconds = 59
-        }
-        
-        return { hours, minutes, seconds }
-      })
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  const formatTime = (time: number): string => {
-    return time.toString().padStart(2, '0')
-  }
-
-  const userAvatars = [
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuCaZ9zcNs9mCvftJU3dsS2JlGdwNUcPGZQ3clXbfFQBEuycilXnCcdn4NBiKLcxlM3BWDWeUInfMTQQf85831khwkDLKv-xXwVwE1-jhSN8p3oQnYk7xBCGqXXRXyeKY9TgLfB7afDg2NEUfQaPQxXL3YTeUSepfPHufQrxX-j2C_gkxkI1eaDvDOul6FRfztEer4yzBdfH47Mmz3mRgiuIHFAfDbSRvyg_yPVlSuKLngIRkGRqO9tX6Qo7oNXXN-95njeusmAMx8Q",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuAICgIMuBNYFwccRCKjIuzppdwFIpL_KdGZeMyfnYNW-MP2W26_o-1B9Ce5LfbSVt-8VtnLZfCZuGZ2t0USL_E5N1WoZeT75tGBUyhtOuGaCnK0I5ksmqvMyutIXnenOo7TeUI4ElR7BVft993S5YlssXlULAHM9nTB4y2ebYFLLGb_gPYRP3ErSxLm-orMofH2tDJPJanZORXoFVyqKdQFT7JkFb7A3qf1jID5cm88AdbjEdXapnyr07jUp6_dRD4RY1lujbZfpKg",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuBRzj854ZhBthjuWKRhEKil21M-3mb3NYMs-qZsHXk1x-M6ddWiOfhFsWD57aLerTeSBPLAe1_BQgZSwPoKVSm-KktTVALDioN45BQrRCpozK4Z0G34VJQqmlqiICW011adNqpwHxb3vuutezu9EuKAM_y4pkO5R7PPt6WCFp7Gxm3qXX0n_DfoziGGwDegpH1eVJFKChgD4W1DfPoPo0HJyOUou3twd9MqYfcKyYtxN8mbdN9nHshTQhUrEg",
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuA_rNSMUzT5JArlT1ETjo53rE6PrKqIoNw64S5Jce72yqyOU3yuySclfmYYtBdamrrDt1Yz70Q_GAPdMrrO_HHFdHwWvLlYa11p-BWa0M3BiGoMFc636VZAkF1Bn4atKEXrBwC02KGnq7MC3B9gvdxZ466qC5yDzbuZGcQpOKJzIWlBOQbwrs3fNeV4f7Vk9076aoCWLH2m3kE2fesBXTDcKpWqkOtSG_hTReL5kzDfFTFkbITaS2YyMBW6DEB-6Lt4QAYTPg2abIU"
-  ]
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
