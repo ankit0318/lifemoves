@@ -26,7 +26,7 @@ export default function CountdownTimer() {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (time) => time.toString().padStart(2, '0');
+  const formatTime = (time: number) => time.toString().padStart(2, '0');
 
   return (
     <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-purple-100">
