@@ -50,7 +50,7 @@ const TestimonialSection = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const selectTestimonial = (index) => {
+  const selectTestimonial = (index: number) => {
     setCurrentTestimonial(index);
   };
 

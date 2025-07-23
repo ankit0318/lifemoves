@@ -8,45 +8,45 @@ const WhoItsFor = () => {
   const cards = [
     {
       id: 1,
-      title: "CAREER",
-      subtitle: "GROWTH",
-      description: "I'm seeking",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop"
+      title: "UNDERSTAND",
+      subtitle: "MY BODY",
+      description: "I’m ready to",
+      image: "/I am ready to understand my body.png"
     },
     {
       id: 2,
-      title: "GROW MY",
-      subtitle: "BUSINESS",
-      description: "I'm looking to",
-      image: "https://images.unsplash.com/photo-1494790108755-2616c79e4fb9?w=500&h=600&fit=crop"
+      title: "SLEEP",
+      subtitle: "DEEPER & WAKE UP ENERGIZED",
+      description: "I want to",
+      image: "/SLEEP DEEPER & WAKE UP ENERGIZED1.png"
     },
     {
       id: 3,
-      title: "MASTER",
-      subtitle: "MY BODY",
-      description: "I'm looking to",
-      image: "https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?w=500&h=600&fit=crop"
+      title: "FEEL",
+      subtitle: "MY EMOTIONS",
+      description: "I want to",
+      image: "/Feel my emotions.png"
     },
     {
       id: 4,
-      title: "TRANSITION",
-      subtitle: "IN LIFE",
-      description: "I'm going through a",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=600&fit=crop"
+      title: "MOVE",
+      subtitle: "WITHOUT PAIN OR PRESSURE",
+      description: "I want to",
+      image: "/MOVE WITHOUT PAIN OR PRESSURE.png"
     },
     {
       id: 5,
-      title: "LOVE",
-      subtitle: "CONNECTION",
-      description: "I'm looking for",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=600&fit=crop"
+      title: "RESET",
+      subtitle: "MY NERVOUS SYSTEM",
+      description: "I want to",
+      image: "/Reset Nervous System.png"
     },
     {
       id: 6,
-      title: "SPIRITUAL",
-      subtitle: "SEEKING",
-      description: "I am",
-      image: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=500&h=600&fit=crop"
+      title: "FEEL",
+      subtitle: "GROUNDED & STRONG IN MY BODY",
+      description: "I want to",
+      image: "/FEEL GROUNDED & STRONG IN MY BODY.png"
     }
   ];
 
@@ -100,12 +100,12 @@ const WhoItsFor = () => {
   return (
     <div className="relative w-full max-w-6xl mx-auto py-20 px-4">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">This is for you if…</h2>
-      <div className="relative h-80 overflow-hidden">
+      <div className="relative h-96 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           {cards.map((card, index) => (
             <div
               key={card.id}
-              className="absolute w-72 h-80 transition-all duration-700 ease-out cursor-pointer"
+              className="absolute w-72 h-96 transition-all duration-700 ease-out cursor-pointer"
               style={getCardStyle(index)}
               onClick={() => setCurrentIndex(index)}
             >
