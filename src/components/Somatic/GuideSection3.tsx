@@ -10,8 +10,8 @@ const GuideSection3 = () => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center mb-24">
       <div className="md:col-span-2 relative">
         <span className="absolute -top-4 -left-6 text-6xl text-gray-200 font-serif">“</span>
-        <p className="text-lg text-gray-600 leading-relaxed z-10 relative">
-          Aman is a visionary wellness leader with over 8 years of experience at the intersection of movement therapy, somatic practices, yoga, and the arts.
+        <p className="text-2xl text-gray-600 leading-relaxed z-10 relative">
+          Aman is a visionary wellness leader with over <br /> 8 years of experience at the intersection of <br/> movement therapy, somatic practices, yoga, <br/> and the arts.
         </p>
       </div>
       <div className="flex justify-center">

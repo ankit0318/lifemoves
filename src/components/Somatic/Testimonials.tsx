@@ -66,7 +66,7 @@ const TestimonialSection = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-6xl  md:text-5xl  font-bold text-gray-800 md:mb-16 mb-10 max-sm:leading-16 text-left">
+        <h1 className="text-6xl  flex justify-center items-center md:text-5xl  font-bold text-gray-800 md:mb-16 mb-10 max-sm:leading-16 text-left">
           What they say about us
         </h1>
 
@@ -87,39 +87,116 @@ const TestimonialSection = () => {
               {/* Speech Bubble Tail */}
               <div className="absolute -bottom-4 max-sm:hidden left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
             </div>
+            {/* Testimonial Image, Name, and Title (Mobile Only) */}
+            <div className="flex flex-col items-center mt-6 mb-4">
+              <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-1 rounded-full shadow-md">
+                <div className="bg-white rounded-full overflow-hidden">
+                  <Image 
+                    alt={`${current.name}, ${current.title}`}
+                    className="object-cover w-40 h-40"
+                    src={current.image}
+                    width={96}
+                    height={96}
+                  />
+                </div>
+              </div>
+              <h3 className="font-bold text-gray-800 text-center mt-2 text-lg">{current.name}</h3>
+              <p className="text-sm text-gray-600 text-center">{current.title}</p>
+            </div>
             <div className="border-2 md:hidden absolute  right-2 bottom-80 flex justify-center items-center border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
                 {currentTestimonial + 1} / {testimonials.length}
               </div>
             
           </div>
           
-         
-          {/* Profile Card Section */}
-          <div className="w-full lg:w-1/3 flex justify-center">
-            <div className="relative">
-              {/* Main Profile Card */}
-              <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-2 rounded-3xl max-sm:rounded-full shadow-xl">
-                <div className="bg-white rounded-2xl overflow-hidden max-sm:rounded-full">
-                  <Image 
-                    alt={`${current.name}, ${current.title}`}
-                    className="w-full h-36 md:h-64 object-cover"
-                    src={current.image}
-                    width={256}
-                    height={144}
-                  />
+          {/* Desktop Layout: Image + Quote Card Side by Side */}
+          <div className="hidden lg:flex w-full justify-center items-center gap-12 mb-0">
+            {/* Profile Card */}
+            <div className="w-1/3 flex justify-center">
+              <div className="relative">
+                <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-2 rounded-3xl shadow-xl">
+                  <div className="bg-white rounded-2xl overflow-hidden">
+                    <Image 
+                      alt={`${current.name}, ${current.title}`}
+                      className="w-full h-64 object-cover"
+                      src={current.image}
+                      width={256}
+                      height={256}
+                    />
+                  </div>
+                  <h3 className="font-bold text-gray-800 text-center mt-2">{current.name}</h3>
+                  <p className="text-sm text-gray-600 text-center">{current.title}</p>
                 </div>
-                <h3 className="font-bold max-sm:hidden text-gray-800 text-center mt-2">{current.name}</h3>
-                <p className="text-sm max-sm:hidden text-gray-600 text-center">{current.title}</p>
               </div>
-              {/* Profile Info Badge */}
-              <div className="md:hidden pt-3">
-                <h3 className="font-bold text-2xl text-gray-800 text-center">{current.name}</h3>
-                <p className="text-md text-gray-600 text-center">{current.title}</p>
+            </div>
+            {/* Quote Card */}
+            <div className="w-1/2 flex flex-col items-center">
+              <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-4 lg:max-w-lg w-full">
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  &quot;{current.quote.split('Thank you').map((part, index) => 
+                    index === 0 ? part : (
+                      <span key={index}>
+                        <span className="font-bold text-indigo-600">Thank you</span>
+                        {part}
+                      </span>
+                    )
+                  )}&quot;
+                </p>
+                {/* Speech Bubble Tail */}
+                <div className="absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
+              </div>
+              {/* Navigation + Numbering Row */}
+              <div className="flex w-full items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <button 
+                    onClick={prevTestimonial}
+                    className="bg-gray-200 text-gray-600 p-3 rounded-full hover:bg-gray-300 transition-colors duration-300 mr-4 hover:shadow-md"
+                    aria-label="Previous testimonial"
+                  >
+                    <ChevronLeft size={24} />
+                  </button>
+                  <button 
+                    onClick={nextTestimonial}
+                    className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors duration-300 hover:shadow-md"
+                    aria-label="Next testimonial"
+                  >
+                    <ChevronRight size={24} />
+                  </button>
+                </div>
+                <div className="border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+                  {currentTestimonial + 1} / {testimonials.length}
+                </div>
+              </div>
+              {/* Pagination and Thumbnails */}
+              <div className="flex items-center justify-center w-full">
+                <div className="space-x-3 hidden md:flex">
+                  {testimonials.map((testimonial, index) => (
+                    <button
+                      key={testimonial.id}
+                      onClick={() => selectTestimonial(index)}
+                      className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
+                        index === currentTestimonial 
+                          ? 'border-indigo-600 shadow-lg' 
+                          : 'border-gray-300 hover:border-gray-400'
+                      }`}
+                      aria-label={`View testimonial from ${testimonial.name}`}
+                    >
+                      <Image 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover rounded-full"
+                        src={testimonial.image}
+                        width={64}
+                        height={64}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-          {/* Testimonial Content Section */}
-          <div className="w-full lg:w-2/3 md:mt-12 lg:mt-0">
+
+          {/* Original Desktop Content Section (hidden on lg) */}
+          <div className="w-full lg:hidden">
             {/* Navigation Controls */}
             <div className="flex items-center justify-center lg:justify-start mb-8">
               <button 
@@ -139,7 +216,7 @@ const TestimonialSection = () => {
             </div>
             {/* Desktop Quote Bubble (original place) */}
             <div className="hidden lg:block">
-              <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-8">
+              <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-8 lg:max-w-lg">
                 <p className="text-gray-700 text-lg leading-relaxed">
                   &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
@@ -167,7 +244,7 @@ const TestimonialSection = () => {
                   <button
                     key={testimonial.id}
                     onClick={() => selectTestimonial(index)}
-                    className={`w-16 h-16 rounded-xl border-2 p-1 transition-all duration-300 hover:scale-105 ${
+                    className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
                       index === currentTestimonial 
                         ? 'border-indigo-600 shadow-lg' 
                         : 'border-gray-300 hover:border-gray-400'
@@ -176,7 +253,7 @@ const TestimonialSection = () => {
                   >
                     <Image 
                       alt={testimonial.name}
-                      className="w-full h-full object-cover rounded-lg"
+                      className="w-full h-full object-cover rounded-full"
                       src={testimonial.image}
                       width={64}
                       height={64}

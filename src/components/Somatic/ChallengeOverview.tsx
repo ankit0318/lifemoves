@@ -19,7 +19,7 @@ export default function ChallengeOverview() {
       description: "Wake up your nervous system from within",
       icon: Zap,
       color: "bg-blue-100 text-blue-600",
-      illustration:<Image src="/i1.jpeg" alt="Day 1" width={96} height={96} className="w-24 h-24" />
+      illustration:<Image src="/breath reset.gif" alt="Day 1" width={96} height={96} className="w-32 h-28" />
     },
     {
       day: 2,
@@ -27,7 +27,7 @@ export default function ChallengeOverview() {
       description: "Undo 100 Zoom calls",
       icon: Smile,
       color: "bg-green-100 text-green-600",
-      illustration:<Image src="/i2.jpeg" alt="Day 2" width={96} height={96} className="w-24 h-24" />
+      illustration:<Image src="/shoulder detox.png" alt="Day 2" width={96} height={96} className="w-32 h-28" />
     },
     {
       day: 3,

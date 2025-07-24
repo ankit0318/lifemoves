@@ -13,6 +13,9 @@ import StickyMobileCTA from './StickyMobileCta';
 import Navbar from './Navbar';
 import GuideSection2 from './GuideSection2';
 import GuideSection3 from './GuideSection3';
+import GuidedSection4 from './GuidedSection4';
+import GuideSection5 from './GuideSection5';
+import GuideSection6 from './GuideSection6';
 
 export default function SomaticChallengePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -59,14 +62,17 @@ export default function SomaticChallengePage() {
           <Testimonials />
         </div>
         <OfferSection />
-        <GuideSection />
+        {/* <GuideSection />
         <GuideSection2 />
-        <GuideSection3 />
+        <GuideSection3 /> */}
+        <GuideSection5 />
         <div id="faq">
           <FAQSection />
         </div>
         <div id="join">
-          <FinalCTA />
+          {/* <FinalCTA /> */}
+        {/* <GuidedSection4 /> */}
+        <GuideSection6 />
         </div>
         
         {isMobile && showStickyCTA && <StickyMobileCTA />}

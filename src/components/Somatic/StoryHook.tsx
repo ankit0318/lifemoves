@@ -66,7 +66,7 @@ export default function StoryHook() {
             {scenes.slice(0, 3).map((scene, idx) => (
               <div
                 key={scene.text}
-                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx ? 'opacity-100 blur-0' : 'opacity-60 blur-sm'}`}
+                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx ? 'opacity-100' : 'opacity-10'}`}
               >
                 <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
                 <p className="text-gray-500 text-base">{scene.description}</p>
@@ -98,7 +98,7 @@ export default function StoryHook() {
             {scenes.slice(3, 6).map((scene, idx) => (
               <div
                 key={scene.text}
-                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx + 3 ? 'opacity-100 blur-0' : 'opacity-60 blur-sm'}`}
+                className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx + 3 ? 'opacity-100' : 'opacity-10'}`}
               >
                 <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
                 <p className="text-gray-500 text-base">{scene.description}</p>
