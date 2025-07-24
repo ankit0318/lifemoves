@@ -4,64 +4,90 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: {
-          DEFAULT: '#5758A6', // Deep Indigo
-          light: '#BDB4F1',   // Light Indigo
-          background: '#E5E7FF', // Soft Lavender
-        },
-        secondary: {
-          DEFAULT: '#B5E1BE', // Soft Green
-        },
-        accent: {
-          DEFAULT: '#BDB4F1', // Light Purple
-        },
-        neutral: {
-          DEFAULT: '#FDFDFD', // White
-          light: '#F3F5F7',   // Light Gray
-        },
+    fontSize: {
+      sm: '0.750rem',
+      base: '1rem',
+      xl: '1.333rem',
+      '2xl': '1.777rem',
+      '3xl': '2.369rem',
+      '4xl': '3.158rem',
+      '5xl': '4.210rem',
+    },
+    fontFamily: {
+      heading: ['Poppins'],
+      body: ['Lato'],
+    },
+    fontWeight: {
+      normal: '400',
+      bold: '700',
+    },
+    colors: {
+      text: {
+        50: 'var(--text-50)',
+        100: 'var(--text-100)',
+        200: 'var(--text-200)',
+        300: 'var(--text-300)',
+        400: 'var(--text-400)',
+        500: 'var(--text-500)',
+        600: 'var(--text-600)',
+        700: 'var(--text-700)',
+        800: 'var(--text-800)',
+        900: 'var(--text-900)',
+        950: 'var(--text-950)',
       },
-      fontFamily: {
-        heading: [
-          'Poppins',
-          'Inter',
-          'ui-sans-serif',
-          'system-ui',
-          'sans-serif',
-        ],
-        body: [
-          'Inter',
-          'ui-sans-serif',
-          'system-ui',
-          'sans-serif',
-        ],
-        mono: [
-          'Fira Mono',
-          'Menlo',
-          'Monaco',
-          'monospace',
-        ],
+      background: {
+        50: 'var(--background-50)',
+        100: 'var(--background-100)',
+        200: 'var(--background-200)',
+        300: 'var(--background-300)',
+        400: 'var(--background-400)',
+        500: 'var(--background-500)',
+        600: 'var(--background-600)',
+        700: 'var(--background-700)',
+        800: 'var(--background-800)',
+        900: 'var(--background-900)',
+        950: 'var(--background-950)',
       },
-      fontSize: {
-        'h1': ['2.5rem', { lineHeight: '1.2', fontWeight: '700' }], // 40px
-        'h2': ['2rem', { lineHeight: '1.25', fontWeight: '600' }],   // 32px
-        'h3': ['1.5rem', { lineHeight: '1.3', fontWeight: '600' }],  // 24px
-        'body-lg': ['1.125rem', { lineHeight: '1.7', fontWeight: '400' }], // 18px
-        'body': ['1rem', { lineHeight: '1.7', fontWeight: '400' }],  // 16px
-        'body-sm': ['0.875rem', { lineHeight: '1.6', fontWeight: '400' }], // 14px
+      primary: {
+        50: 'var(--primary-50)',
+        100: 'var(--primary-100)',
+        200: 'var(--primary-200)',
+        300: 'var(--primary-300)',
+        400: 'var(--primary-400)',
+        500: 'var(--primary-500)',
+        600: 'var(--primary-600)',
+        700: 'var(--primary-700)',
+        800: 'var(--primary-800)',
+        900: 'var(--primary-900)',
+        950: 'var(--primary-950)',
       },
-      fontWeight: {
-        normal: '400',
-        medium: '500',
-        semibold: '600',
-        bold: '700',
+      secondary: {
+        50: 'var(--secondary-50)',
+        100: 'var(--secondary-100)',
+        200: 'var(--secondary-200)',
+        300: 'var(--secondary-300)',
+        400: 'var(--secondary-400)',
+        500: 'var(--secondary-500)',
+        600: 'var(--secondary-600)',
+        700: 'var(--secondary-700)',
+        800: 'var(--secondary-800)',
+        900: 'var(--secondary-900)',
+        950: 'var(--secondary-950)',
       },
-      spacing: {
-        'section': '5rem', // 80px for section padding
-        'container': '2rem', // 32px for container padding
+      accent: {
+        50: 'var(--accent-50)',
+        100: 'var(--accent-100)',
+        200: 'var(--accent-200)',
+        300: 'var(--accent-300)',
+        400: 'var(--accent-400)',
+        500: 'var(--accent-500)',
+        600: 'var(--accent-600)',
+        700: 'var(--accent-700)',
+        800: 'var(--accent-800)',
+        900: 'var(--accent-900)',
+        950: 'var(--accent-950)',
       },
     },
   },
   plugins: [],
-}; 
+};
