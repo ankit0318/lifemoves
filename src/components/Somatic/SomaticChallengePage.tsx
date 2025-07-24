@@ -16,6 +16,8 @@ import GuideSection3 from './GuideSection3';
 import GuidedSection4 from './GuidedSection4';
 import GuideSection5 from './GuideSection5';
 import GuideSection6 from './GuideSection6';
+import StepSection from './StepSection';
+import SomaticReset7Day from './SomaticReset7Day';
 
 export default function SomaticChallengePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -53,9 +55,11 @@ export default function SomaticChallengePage() {
           <HeroSection />
         </div>
         <div id="challenge">
-          <StoryHook />
+          {/* <StoryHook /> */}
           {/* <StoryHook2 /> */}
-          <ChallengeOverview />
+          {/* <ChallengeOverview /> */}
+          <StepSection />
+          <SomaticReset7Day />
         </div>
         <WhoItsFor />
         <div id="testimonials">
