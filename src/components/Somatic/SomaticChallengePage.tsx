@@ -26,7 +26,12 @@ import MobileGuideSection from './MobileGuideSection';
 export default function SomaticChallengePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -71,9 +76,9 @@ export default function SomaticChallengePage() {
           <Testimonials />
         </div>
         <OfferSection />
-        {!isMobile && <GuideSection5 />}
+        {mounted && !isMobile && <GuideSection5 />}
         
-        <MobileGuideSection />
+        {mounted && <MobileGuideSection />}
         <div id="faq">
           <FAQSection />
         </div>
@@ -83,7 +88,7 @@ export default function SomaticChallengePage() {
         <GuideSection6 />
         </div>
         
-        {isMobile && showStickyCTA && <StickyMobileCTA />}
+        {mounted && isMobile && showStickyCTA && <StickyMobileCTA />}
       </div>
     </div>
   );
