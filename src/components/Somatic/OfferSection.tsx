@@ -41,72 +41,72 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="bg-emerald-50 flex items-center justify-center min-h-screen">
-      <div className="max-w-6xl w-full px-4 py-8 md:p-8">
-        <div className="text-center mb-6 md:mb-12">
-          <h1 className="text-3xl md:text-6xl font-bold text-emerald-800 mb-4 md:mb-6" style={{ fontFamily: 'Merriweather, serif' }}>
+    <div className="bg-secondary-50 flex items-center justify-center min-h-screen">
+      <div className="max-w-6xl w-full px-6 py-12 md:p-12">
+        <div className="text-center mb-8 md:mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-secondary-800 mb-6 md:mb-8 font-heading">
             Your body is the best guide you never listened to.
           </h1>
-          <p className="text-lg md:text-xl text-emerald-700">
+          <p className="text-xl md:text-2xl text-secondary-700 font-body">
             Let's change that — in just 10 minutes a day.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-          <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
+          <div className="md:w-1/2 flex justify-center mb-12 md:mb-0">
             <img
               alt="Illustration of a person's head with a spiral inside and a plant growing beside it."
-              className="w-full max-w-xs md:max-w-md h-auto"
+              className="w-full max-w-sm md:max-w-lg h-auto rounded-2xl shadow-xl"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ7L0qjIJChoDEkIblwjRCCUe36cVGay3mqdSyqkF3i_fTDAATh0I8RswDRjDzumXK5BGzAtEJj-FomAW3TNMLD9ZXk6LuOi3LDOaDH8wtHBjmkjnkpbLM_h54iaFYEohaPFjZpsv3um8aYuQZWhn_gSlIu5lpJdQb-2MD3hmg9Efks4MWv0oEiRmBcNJJl5QR2MSA3nD0_mPcT3jWQvXUmj2a0zxHLNNQics-BNfoAQFQRJkbd-hUOn10l31Ho4IllhHYKKE9upc"
             />
           </div>
           <div className="text-center md:text-left md:w-1/2">
-            <h2 className="text-2xl md:text-4xl font-bold text-emerald-800 mb-1 md:mb-2" style={{ fontFamily: 'Merriweather, serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-800 mb-2 md:mb-4 font-heading">
               Join The 7-Day Reset
             </h2>
-            <p className="text-emerald-700 mb-4 md:mb-6 text-base md:text-lg">
+            <p className="text-secondary-700 mb-6 md:mb-8 text-lg md:text-xl font-body">
               Join 1000+ people who've already started their reset.
             </p>
-            <div className="space-y-2 md:space-y-3 max-sm:flex max-sm:justify-center max-sm:items-center max-sm:flex-col text-emerald-800 mb-4 md:mb-6">
-              <div className="flex items-center">
-                <DirectionsWalkIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">7 days of guided somatic movement</p>
+            <div className="space-y-3 md:space-y-4 max-sm:flex max-sm:justify-center max-sm:items-center max-sm:flex-col text-secondary-800 mb-6 md:mb-8">
+              <div className="flex items-center justify-center md:justify-start">
+                <DirectionsWalkIcon className="text-accent-600 mr-3 md:mr-4" fontSize="large" />
+                <p className="text-base md:text-lg">7 days of guided somatic movement</p>
               </div>
-              <div className="flex items-center">
-                <TimerIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">Just 10 minutes daily</p>
+              <div className="flex items-center justify-center md:justify-start">
+                <TimerIcon className="text-accent-600 mr-3 md:mr-4" fontSize="large" />
+                <p className="text-base md:text-lg">Just 10 minutes daily</p>
               </div>
-              <div className="flex items-center">
-                <AllInclusiveIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">Lifetime access</p>
-              </div>
-            </div>
-            <div className="flex items-baseline gap-2 md:gap-4 mb-4 md:mb-6 justify-center md:justify-start">
-              <span className="text-3xl md:text-5xl font-bold text-emerald-800">₹999</span>
-              <span className="text-lg md:text-2xl text-gray-500 line-through">₹2499</span>
-            </div>
-            <div className="flex justify-center md:justify-start items-center gap-2 md:gap-4 mb-6 md:mb-8">
-              <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.days.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Days</p>
-              </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
-              <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.hours.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Hours</p>
-              </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
-              <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.minutes.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Minutes</p>
-              </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
-              <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.seconds.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Seconds</p>
+              <div className="flex items-center justify-center md:justify-start">
+                <AllInclusiveIcon className="text-accent-600 mr-3 md:mr-4" fontSize="large" />
+                <p className="text-base md:text-lg">Lifetime access</p>
               </div>
             </div>
-            <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg flex items-center justify-center shadow-md transition-colors text-base md:text-lg w-full md:w-auto">
-              <RocketLaunchIcon className="mr-1 md:mr-2" fontSize="medium" />
+            <div className="flex items-baseline gap-3 md:gap-6 mb-6 md:mb-8 justify-center md:justify-start">
+              <span className="text-4xl md:text-6xl font-bold text-secondary-800">₹999</span>
+              <span className="text-xl md:text-3xl text-text-500 line-through">₹2499</span>
+            </div>
+            <div className="flex justify-center md:justify-start items-center gap-3 md:gap-6 mb-8 md:mb-10">
+              <div className="text-center">
+                <span className="text-3xl md:text-5xl font-bold text-accent-600">{time.days.toString().padStart(2, '0')}</span>
+                <p className="text-sm md:text-base text-secondary-700 font-medium">Days</p>
+              </div>
+              <span className="text-3xl md:text-5xl font-bold text-accent-600">:</span>
+              <div className="text-center">
+                <span className="text-3xl md:text-5xl font-bold text-accent-600">{time.hours.toString().padStart(2, '0')}</span>
+                <p className="text-sm md:text-base text-secondary-700 font-medium">Hours</p>
+              </div>
+              <span className="text-3xl md:text-5xl font-bold text-accent-600">:</span>
+              <div className="text-center">
+                <span className="text-3xl md:text-5xl font-bold text-accent-600">{time.minutes.toString().padStart(2, '0')}</span>
+                <p className="text-sm md:text-base text-secondary-700 font-medium">Minutes</p>
+              </div>
+              <span className="text-3xl md:text-5xl font-bold text-accent-600">:</span>
+              <div className="text-center">
+                <span className="text-3xl md:text-5xl font-bold text-accent-600">{time.seconds.toString().padStart(2, '0')}</span>
+                <p className="text-sm md:text-base text-secondary-700 font-medium">Seconds</p>
+              </div>
+            </div>
+            <button className="bg-accent-600 hover:bg-accent-700 text-background-50 font-bold py-4 md:py-6 px-8 md:px-12 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300 hover:shadow-2xl hover:scale-105 text-lg md:text-xl w-full md:w-auto">
+              <RocketLaunchIcon className="mr-2 md:mr-3" fontSize="large" />
               Start Your Reset
             </button>
           </div>

@@ -35,24 +35,24 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-green-50">
-      <div className="max-w-4xl mx-auto px-4">
+    <section className="py-24 bg-gradient-to-b from-background-50 to-secondary-50">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-text-900 mb-8 font-heading">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-text-600 font-body">
             Everything you need to know before joining
           </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -60,20 +60,20 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              className="bg-background-50 rounded-2xl shadow-xl overflow-hidden border border-text-100"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-text-50 transition-colors duration-200"
               >
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-xl font-semibold text-text-900 font-heading">
                   {faq.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-6 h-6 text-text-500" />
                 </motion.div>
               </button>
               
@@ -86,8 +86,8 @@ export default function FAQSection() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4">
-                      <p className="text-gray-700 leading-relaxed">
+                    <div className="px-8 pb-6">
+                      <p className="text-text-700 leading-relaxed text-lg font-body">
                         {faq.answer}
                       </p>
                     </div>

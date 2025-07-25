@@ -57,9 +57,9 @@ export default function SomaticChallengePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-background-50 to-background-100">
       <Navbar />
-      <div className="relative pt-2 md:pt-8">
+      <div className="relative pt-4 md:pt-12">
         <div ref={heroRef}>
           <HeroSection />
         </div>
@@ -67,8 +67,6 @@ export default function SomaticChallengePage() {
           <StoryHook />
         
           <ChallengeOverview />
-          {/* <StepSection />
-          <SomaticReset7Day /> */}
         
         </div>
         <WhoItsFor />

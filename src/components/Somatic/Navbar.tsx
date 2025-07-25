@@ -27,19 +27,19 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full from-indigo-50 via-white to-purple-50 backdrop-blur-md fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <nav className="w-full bg-gradient-to-r from-primary-50 via-background-50 to-secondary-50 backdrop-blur-md fixed top-0 left-0 z-50 border-b border-text-100">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-18">
         {/* Logo */}
-        <Link href="#" className="flex items-center font-extrabold text-3xl text-indigo-700 flex-shrink-0">
-          <img src='/lifemoves.webp' alt='LifeMoves' className='h-10 w-auto sm:h-12 md:h-14 lg:h-16 object-contain' />
+        <Link href="#" className="flex items-center font-extrabold text-3xl text-primary-700 flex-shrink-0">
+          <img src='/lifemoves.webp' alt='LifeMoves' className='h-12 w-auto sm:h-14 md:h-16 lg:h-18 object-contain' />
         </Link>
         {/* Desktop Nav Links Centered */}
-        <div className="hidden md:flex flex-1 items-center justify-center gap-8">
+        <div className="hidden md:flex flex-1 items-center justify-center gap-10">
           {navLinks.map(link => (
             <a
               key={link.name}
               href={link.href}
-              className="text-gray-500 hover:text-gray-900 font-medium text-md transition-colors duration-200"
+              className="text-text-500 hover:text-text-900 font-medium text-lg transition-colors duration-200 font-body"
               onClick={e => handleNavClick(e, link.href, () => {})}
             >
               {link.name}
@@ -47,10 +47,10 @@ export default function Navbar() {
           ))}
         </div>
         {/* Join Button Desktop */}
-        <div className="hidden md:block ml-4">
+        <div className="hidden md:block ml-6">
           <a
             href="#join"
-            className="bg-gray-900 text-white px-6 py-1 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg"
+            className="bg-text-900 text-background-50 px-8 py-3 rounded-full font-medium hover:bg-text-800 transition-colors text-lg shadow-lg"
           >
             Join
           </a>
@@ -61,18 +61,18 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
+          {menuOpen ? <X className="w-7 h-7 text-text-900" /> : <Menu className="w-7 h-7 text-text-900" />}
         </button>
       </div>
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 border-t border-gray-100 shadow-lg">
-          <div className="flex flex-col gap-2 px-4 py-4">
+        <div className="md:hidden bg-background-50/95 border-t border-text-100 shadow-xl">
+          <div className="flex flex-col gap-3 px-6 py-6">
             {navLinks.map(link => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 font-semibold py-2 px-2 rounded hover:bg-indigo-50 hover:text-indigo-700 transition-colors duration-200"
+                className="text-text-700 font-semibold py-3 px-4 rounded-lg hover:bg-primary-50 hover:text-primary-700 transition-colors duration-200 font-body"
                 onClick={e => handleNavClick(e, link.href, setMenuOpen)}
               >
                 {link.name}
@@ -80,7 +80,7 @@ export default function Navbar() {
             ))}
             <a
               href="#join"
-              className="mt-4 bg-gray-900 text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg text-center"
+              className="mt-6 bg-text-900 text-background-50 px-8 py-4 rounded-full font-medium hover:bg-text-800 transition-colors text-lg text-center shadow-lg"
               onClick={() => setMenuOpen(false)}
             >
               Join

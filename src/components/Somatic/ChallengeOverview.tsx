@@ -75,23 +75,23 @@ export default function ChallengeOverview() {
 
 
   return (
-    <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-4xl mx-auto px-4">
+    <section className="py-24 bg-gradient-to-b from-primary-50 to-background-50">
+      <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-28"
+          className="text-center mb-32"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-text-900 mb-8 font-heading">
             The 7-Day Somatic Reset
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 mb-4">
+          <p className="text-xl md:text-2xl text-text-600 mb-6">
             A body-first experiment to help you feel like yourself again.
           </p>
-          <div className="inline-flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full">
-            <span className="text-purple-800 font-semibold">
+          <div className="inline-flex items-center gap-2 bg-primary-100 px-6 py-3 rounded-full">
+            <span className="text-primary-800 font-semibold">
               Just 10 minutes a day. No equipment. No fluff.
             </span>
           </div>
@@ -99,12 +99,12 @@ export default function ChallengeOverview() {
 
         <div className="relative">
           {/* Desktop Timeline vertical line */}
-          <div className="hidden md:block absolute left-1/2 top-5 w-1 bg-gray-200 h-full -translate-x-1/2 z-0" aria-hidden="true" />
+          <div className="hidden md:block absolute left-1/2 top-5 w-1 bg-text-200 h-full -translate-x-1/2 z-0" aria-hidden="true" />
           
           {/* Mobile Timeline vertical line - positioned on the left */}
-          <div className="md:hidden absolute left-16 top-2 w-1 bg-gray-200 h-full z-0" aria-hidden="true" />
+          <div className="md:hidden absolute left-16 top-2 w-1 bg-text-200 h-full z-0" aria-hidden="true" />
           
-          <div className="flex flex-col gap-12 relative z-10">
+          <div className="flex flex-col gap-16 relative z-10">
             {challengeDays.map((day, index) => {
               const Icon = day.icon;
               const isLeftText = index % 2 === 0;
@@ -115,17 +115,17 @@ export default function ChallengeOverview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="grid grid-cols-1 md:grid-cols-3 items-center gap-6"
+                  className="grid grid-cols-1 md:grid-cols-3 items-center gap-8"
                 >
                   {/* Desktop Layout (unchanged) */}
                   {/* Left side: text or illustration */}
                   <div className="hidden md:flex justify-end">
                     {isLeftText ? (
                       <div className="flex flex-col items-end text-right max-w-xs">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-xl font-bold text-text-900 mb-2">
                         {day.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">
+                        <p className="text-text-600 mb-3 leading-relaxed">
                           {day.description}
                         </p>
                       </div>
@@ -138,12 +138,12 @@ export default function ChallengeOverview() {
                   
                   {/* Desktop Timeline step (center) */}
                   <div className="hidden md:flex flex-col items-center relative z-10">
-                    <div className={`w-24 h-12 flex items-center justify-center rounded-4xl border-4 border-white shadow-md ${day.color} font-bold text-lg mb-2`}> 
+                    <div className={`w-28 h-14 flex items-center justify-center rounded-2xl border-4 border-background-50 shadow-lg ${day.color} font-bold text-lg mb-3`}> 
                       {'Day ' + day.day}
                     </div>
                     {/* Timeline connector */}
                     {index < challengeDays.length - 1 && (
-                      <div className="w-1 h-full bg-gray-200 flex-1" />
+                      <div className="w-1 h-full bg-text-200 flex-1" />
                     )}
                   </div>
                   
@@ -155,10 +155,10 @@ export default function ChallengeOverview() {
                       </div>
                     ) : (
                       <div className="flex flex-col items-start text-left max-w-xs">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-xl font-bold text-text-900 mb-2">
                            {day.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">
+                        <p className="text-text-600 mb-3 leading-relaxed">
                           {day.description}
                         </p>
                       </div>
@@ -166,11 +166,11 @@ export default function ChallengeOverview() {
                   </div>
                   
                   {/* Mobile Layout - Enhanced with left timeline */}
-                  <div className="md:hidden flex items-start gap-6 pl-4 pr-2">
+                  <div className="md:hidden flex items-start gap-8 pl-6 pr-4">
                     {/* Mobile Timeline step (left positioned) */}
                     <div className="flex flex-col items-center relative z-10 flex-shrink-0">
-                      <div className="w-24   h-24 rounded-full overflow-hidden border-1  border-white shadow-lg bg-white p-1"> 
-                        <div className="w-full h-full rounded-full overflow-hidden justify-center items-center flex">
+                      <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-background-50 shadow-xl bg-background-50 p-2"> 
+                        <div className="w-full h-full rounded-full overflow-hidden justify-center items-center flex bg-gradient-to-br from-primary-50 to-secondary-50">
                           {day.illustration}
                         </div>
                       </div>
@@ -179,16 +179,16 @@ export default function ChallengeOverview() {
                     </div>
                     
                     {/* Mobile Content (right side) */}
-                    <div className="flex-1 pt-2 pb-4">
-                      <div className="mb-4">
-                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium mb-3 ${day.color}`}>
+                    <div className="flex-1 pt-3 pb-6">
+                      <div className="mb-6">
+                        <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4 ${day.color}`}>
                           <Icon className="w-4 h-4" />
                           <span>Day {day.day}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                        <h3 className="text-xl font-bold text-text-900 mb-3 leading-tight">
                           {day.title}
                         </h3>
-                        <p className="text-gray-600 text-base leading-relaxed">
+                        <p className="text-text-600 text-base leading-relaxed">
                           {day.description}
                         </p>
                       </div>
@@ -205,11 +205,11 @@ export default function ChallengeOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-20"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-green-100 px-6 py-3 rounded-full">
-            <Sparkles className="w-5 h-5 text-purple-600" />
-            <span className="text-gray-800 font-medium">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-100 to-secondary-100 px-8 py-4 rounded-full">
+            <Sparkles className="w-5 h-5 text-primary-600" />
+            <span className="text-text-800 font-medium text-lg">
               Progressive daily sessions building on each other
             </span>
           </div>

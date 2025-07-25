@@ -60,126 +60,126 @@ const TestimonialSection = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <div className="bg-gray-50 min-h-screen flex items-center justify-center py-16 px-4">
-      <div className="container mx-auto max-w-6xl relative">
+    <div className="bg-background-100 min-h-screen flex items-center justify-center py-20 px-6">
+      <div className="container mx-auto max-w-7xl relative">
         {/* Background Decorative Element */}
         <div className="absolute top-0 right-0 -mt-8 -mr-8 opacity-30">
-          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-200 to-gray-200"></div>
+          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary-200 to-secondary-200"></div>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-6xl  flex justify-center items-center md:text-5xl  font-bold text-gray-800 md:mb-16 mb-10 max-sm:leading-16 text-left">
+        <h1 className="text-5xl md:text-6xl font-bold text-text-900 md:mb-20 mb-12 text-center font-heading">
           What they say about us
         </h1>
 
-        <div className="flex flex-col lg:flex-row items-start md:gap-12 gap-7">
+        <div className="flex flex-col lg:flex-row items-start md:gap-16 gap-10">
           {/* Mobile Quote Bubble (above image) */}
-          <div className="block lg:hidden w-full md:mb-6">
-            <div className="relative bg-white p-8 rounded-3xl shadow-lg md:mb-8">
-              <p className="text-gray-700 text-lg max-sm:text-2xl leading-relaxed max-sm:leading-8">
+          <div className="block lg:hidden w-full md:mb-8">
+            <div className="relative bg-background-50 p-8 rounded-3xl shadow-xl md:mb-10">
+              <p className="text-text-700 text-lg max-sm:text-xl leading-relaxed">
                 &quot;{current.quote.split('Thank you').map((part, index) => 
                   index === 0 ? part : (
                     <span key={index}>
-                      <span className="font-bold text-indigo-600">Thank you</span>
+                      <span className="font-bold text-primary-600">Thank you</span>
                       {part}
                     </span>
                   )
                 )}&quot;
               </p>
               {/* Speech Bubble Tail */}
-              <div className="absolute -bottom-4 max-sm:hidden left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
+              <div className="absolute -bottom-4 max-sm:hidden left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-background-50"></div>
             </div>
             {/* Testimonial Image, Name, and Title (Mobile Only) */}
-            <div className="flex flex-col items-center mt-6 mb-4">
-              <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-1 rounded-full shadow-md">
-                <div className="bg-white rounded-full overflow-hidden">
+            <div className="flex flex-col items-center mt-8 mb-6">
+              <div className="bg-gradient-to-br from-primary-200 via-primary-100 to-secondary-200 p-2 rounded-full shadow-lg">
+                <div className="bg-background-50 rounded-full overflow-hidden">
                   <Image 
                     alt={`${current.name}, ${current.title}`}
-                    className="object-cover w-40 h-40"
+                    className="object-cover w-44 h-44"
                     src={current.image}
-                    width={96}
-                    height={96}
+                    width={176}
+                    height={176}
                   />
                 </div>
               </div>
-              <h3 className="font-bold text-gray-800 text-center mt-2 text-lg">{current.name}</h3>
-              <p className="text-sm text-gray-600 text-center">{current.title}</p>
+              <h3 className="font-bold text-text-800 text-center mt-3 text-xl">{current.name}</h3>
+              <p className="text-base text-text-600 text-center">{current.title}</p>
             </div>
-            <div className="border-2 md:hidden absolute  right-2 bottom-80 flex justify-center items-center border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="border-2 md:hidden absolute right-4 bottom-80 flex justify-center items-center border-primary-600 text-primary-600 px-4 py-2 rounded-full text-sm font-semibold">
                 {currentTestimonial + 1} / {testimonials.length}
               </div>
             
           </div>
           
           {/* Desktop Layout: Image + Quote Card Side by Side */}
-          <div className="hidden lg:flex w-full justify-center items-center gap-12 mb-0">
+          <div className="hidden lg:flex w-full justify-center items-center gap-16 mb-0">
             {/* Profile Card */}
             <div className="w-1/3 flex justify-center">
               <div className="relative">
-                <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-2 rounded-3xl shadow-xl">
-                  <div className="bg-white rounded-2xl overflow-hidden">
+                <div className="bg-gradient-to-br from-primary-200 via-primary-100 to-secondary-200 p-3 rounded-3xl shadow-2xl">
+                  <div className="bg-background-50 rounded-2xl overflow-hidden">
                     <Image 
                       alt={`${current.name}, ${current.title}`}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-72 object-cover"
                       src={current.image}
-                      width={256}
-                      height={256}
+                      width={288}
+                      height={288}
                     />
                   </div>
-                  <h3 className="font-bold text-gray-800 text-center mt-2">{current.name}</h3>
-                  <p className="text-sm text-gray-600 text-center">{current.title}</p>
+                  <h3 className="font-bold text-text-800 text-center mt-3 text-lg">{current.name}</h3>
+                  <p className="text-base text-text-600 text-center">{current.title}</p>
                 </div>
               </div>
             </div>
             {/* Quote Card */}
             <div className="w-1/2 flex flex-col items-center">
-              <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-4 lg:max-w-lg w-full">
-                <p className="text-gray-700 text-lg leading-relaxed">
+              <div className="relative bg-background-50 p-10 rounded-3xl shadow-2xl mb-6 lg:max-w-lg w-full">
+                <p className="text-text-700 text-lg leading-relaxed">
                   &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
                       <span key={index}>
-                        <span className="font-bold text-indigo-600">Thank you</span>
+                        <span className="font-bold text-primary-600">Thank you</span>
                         {part}
                       </span>
                     )
                   )}&quot;
                 </p>
                 {/* Speech Bubble Tail */}
-                <div className="absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
+                <div className="absolute -bottom-4 left-10 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-background-50"></div>
               </div>
               {/* Navigation + Numbering Row */}
-              <div className="flex w-full items-center justify-between mb-4">
+              <div className="flex w-full items-center justify-between mb-6">
                 <div className="flex items-center">
                   <button 
                     onClick={prevTestimonial}
-                    className="bg-gray-200 text-gray-600 p-3 rounded-full hover:bg-gray-300 transition-colors duration-300 mr-4 hover:shadow-md"
+                    className="bg-text-200 text-text-600 p-4 rounded-full hover:bg-text-300 transition-colors duration-300 mr-6 hover:shadow-lg"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button 
                     onClick={nextTestimonial}
-                    className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors duration-300 hover:shadow-md"
+                    className="bg-primary-600 text-background-50 p-4 rounded-full hover:bg-primary-700 transition-colors duration-300 hover:shadow-lg"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight size={24} />
                   </button>
                 </div>
-                <div className="border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="border-2 border-primary-600 text-primary-600 px-6 py-3 rounded-full text-base font-semibold">
                   {currentTestimonial + 1} / {testimonials.length}
                 </div>
               </div>
               {/* Pagination and Thumbnails */}
               <div className="flex items-center justify-center w-full">
-                <div className="space-x-3 hidden md:flex">
+                <div className="space-x-4 hidden md:flex">
                   {testimonials.map((testimonial, index) => (
                     <button
                       key={testimonial.id}
                       onClick={() => selectTestimonial(index)}
-                      className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
-                        index === currentTestimonial 
-                          ? 'border-indigo-600 shadow-lg' 
-                          : 'border-gray-300 hover:border-gray-400'
+                      className={`w-18 h-18 rounded-full border-3 p-1 transition-all duration-300 hover:scale-105 ${
+                        index === currentTestimonial
+                          ? 'border-primary-600 shadow-xl' 
+                          : 'border-text-300 hover:border-text-400'
                       }`}
                       aria-label={`View testimonial from ${testimonial.name}`}
                     >
@@ -187,8 +187,8 @@ const TestimonialSection = () => {
                         alt={testimonial.name}
                         className="w-full h-full object-cover rounded-full"
                         src={testimonial.image}
-                        width={64}
-                        height={64}
+                        width={72}
+                        height={72}
                       />
                     </button>
                   ))}
@@ -200,17 +200,17 @@ const TestimonialSection = () => {
           {/* Original Desktop Content Section (hidden on lg) */}
           <div className="w-full lg:hidden">
             {/* Navigation Controls */}
-            <div className="flex items-center justify-center lg:justify-start mb-8">
+            <div className="flex items-center justify-center lg:justify-start mb-10">
               <button 
                 onClick={prevTestimonial}
-                className="bg-gray-200 text-gray-600 p-3 rounded-full hover:bg-gray-300 transition-colors duration-300 mr-4 hover:shadow-md"
+                className="bg-text-200 text-text-600 p-4 rounded-full hover:bg-text-300 transition-colors duration-300 mr-6 hover:shadow-lg"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={24} />
               </button>
               <button 
                 onClick={nextTestimonial}
-                className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors duration-300 hover:shadow-md"
+                className="bg-primary-600 text-background-50 p-4 rounded-full hover:bg-primary-700 transition-colors duration-300 hover:shadow-lg"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={24} />
@@ -218,38 +218,38 @@ const TestimonialSection = () => {
             </div>
             {/* Desktop Quote Bubble (original place) */}
             <div className="hidden lg:block">
-              <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-8 lg:max-w-lg">
-                <p className="text-gray-700 text-lg leading-relaxed">
+              <div className="relative bg-background-50 p-10 rounded-3xl shadow-2xl mb-10 lg:max-w-lg">
+                <p className="text-text-700 text-lg leading-relaxed">
                   &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
                       <span key={index}>
-                        <span className="font-bold text-indigo-600">Thank you</span>
+                        <span className="font-bold text-primary-600">Thank you</span>
                         {part}
                       </span>
                     )
                   )}&quot;
                 </p>
                 {/* Speech Bubble Tail */}
-                <div className="absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white"></div>
+                <div className="absolute -bottom-4 left-10 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-background-50"></div>
               </div>
             </div>
             {/* Pagination and Thumbnails */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
               {/* Page Indicator */}
-              <div className="border-2 max-sm:hidden  border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+              <div className="border-2 max-sm:hidden border-primary-600 text-primary-600 px-6 py-3 rounded-full text-base font-semibold">
                 {currentTestimonial + 1} / {testimonials.length}
               </div>
 
               {/* Thumbnail Navigation */}
-              <div className=" space-x-3 hidden md:flex">
+              <div className="space-x-4 hidden md:flex">
                 {testimonials.map((testimonial, index) => (
                   <button
                     key={testimonial.id}
                     onClick={() => selectTestimonial(index)}
-                    className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
+                    className={`w-18 h-18 rounded-full border-3 p-1 transition-all duration-300 hover:scale-105 ${
                       index === currentTestimonial 
-                        ? 'border-indigo-600 shadow-lg' 
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-primary-600 shadow-xl' 
+                        : 'border-text-300 hover:border-text-400'
                     }`}
                     aria-label={`View testimonial from ${testimonial.name}`}
                   >
@@ -257,8 +257,8 @@ const TestimonialSection = () => {
                       alt={testimonial.name}
                       className="w-full h-full object-cover rounded-full"
                       src={testimonial.image}
-                      width={64}
-                      height={64}
+                      width={72}
+                      height={72}
                     />
                   </button>
                 ))}
