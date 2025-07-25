@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import TimerIcon from '@mui/icons-material/Timer';
