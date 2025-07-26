@@ -101,7 +101,7 @@ const WhoItsFor = () => {
   };
 
   return (
-    <div className="relative w-full  mx-auto py-20 px-4 bg-brand-bg">
+    <div className="relative w-full  mx-auto  px-4 bg-brand-bg">
       <h2 className="text-hero-mobile md:text-hero-desktop font-bold text-center mb-10 text-brand-text font-heading">This is for you if…</h2>
       <div className="relative h-96 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">

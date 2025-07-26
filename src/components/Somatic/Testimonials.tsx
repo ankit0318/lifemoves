@@ -60,7 +60,7 @@ const TestimonialSection = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <div className="bg-brand-bg min-h-screen flex items-center justify-center py-16 px-4">
+    <div className="bg-brand-bg min-h-screen flex items-center justify-center  px-4">
       <div className="container mx-auto max-w-6xl relative">
         {/* Background Decorative Element */}
         <div className="absolute top-0 right-0 -mt-8 -mr-8 opacity-30">

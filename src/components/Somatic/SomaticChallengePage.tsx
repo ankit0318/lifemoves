@@ -13,8 +13,8 @@ import StickyMobileCTA from './StickyMobileCta';
 import Navbar from './Navbar';
 
 import GuideSection5 from './GuideSection5';
-import GuideSection6 from './GuideSection6';
-// import StepSection from './StepSection';
+import FinalCta from './FinalCta';
+
 
 import MobileGuideSection from './MobileGuideSection';
 
@@ -52,34 +52,45 @@ export default function SomaticChallengePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen ">
       <Navbar />
       <div className="relative ">
-        <div ref={heroRef}>
+        <div ref={heroRef} className="section-spacing">
           <HeroSection />
         </div>
-        <div id="challenge">
+        <div className="section-spacing">
           <StoryHook />
-
-          <ChallengeOverview />
-
-
         </div>
-        <WhoItsFor />
-        <div id="testimonials">
+        <div id="challenge " className="section-spacing">
+          <ChallengeOverview />
+        </div>
+        <div id="testimonials" className="section-spacing">
+          <WhoItsFor />
+        </div>
+        <div id="testimonials" className="section-spacing">
           <Testimonials />
         </div>
-        <OfferSection />
-        {mounted && !isMobile && <GuideSection5 />}
+        <div id="offer" className="section-spacing">
+          <OfferSection />
+        </div>
+        {mounted && !isMobile && (
+          <div className="section-spacing">
+            <GuideSection5 />
+          </div>
+        )}
 
-        {mounted && <MobileGuideSection />}
-        <div id="faq">
+        {mounted && (
+          <div className="section-spacing">
+            <MobileGuideSection />
+          </div>
+        )}
+        <div id="faq" className="section-spacing">
           <FAQSection />
         </div>
-        <div id="join">
+        <div id="join" >
 
 
-          <GuideSection6 />
+          <FinalCta />
         </div>
 
         {mounted && isMobile && showStickyCTA && <StickyMobileCTA />}

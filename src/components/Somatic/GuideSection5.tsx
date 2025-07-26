@@ -11,10 +11,10 @@ const GuideSection5: React.FC = () => {
         </h2>
       </div>
       {/* End heading section */}
-      <div className="container mx-auto px-4 pb-16">
+      <div className="container mx-auto px-4 ">
         <div className="text-center mb-12">
           <h1 className="text-hero-mobile md:text-hero-desktop font-bold text-brand-text font-heading">
-            I'm <span className="text-brand-primary">Aman</span>
+            I&apos;m <span className="text-brand-primary">Aman</span>
           </h1>
           <p className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary mt-4 font-body">
             Holistic Wellness Professional, Educator &amp; Interdisciplinary Artist
@@ -61,22 +61,22 @@ const GuideSection5: React.FC = () => {
           </div>
         </div>
         <div className="text-center">
-      <h2 className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-text mb-12 font-heading">Global Experience: Impact across India, Cyprus & Turkey</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-6 rounded-lg">
-          <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">10,000+</p>
-          <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Individuals Taught through workshops, classes & intensives</p>
+          <h2 className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-text mb-12 font-heading">Global Experience: Impact across India, Cyprus & Turkey</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-6 rounded-lg">
+              <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">10,000+</p>
+              <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Individuals Taught through workshops, classes & intensives</p>
+            </div>
+            <div className="p-6 rounded-lg">
+              <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">400+</p>
+              <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Lives Deeply Transformed through 1:1 and long-term programs</p>
+            </div>
+            <div className="p-6 rounded-lg">
+              <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">10+</p>
+              <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Years Experience</p>
+            </div>
+          </div>
         </div>
-        <div className="p-6 rounded-lg">
-          <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">400+</p>
-          <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Lives Deeply Transformed through 1:1 and long-term programs</p>
-        </div>
-        <div className="p-6 rounded-lg">
-          <p className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-primary font-heading">10+</p>
-          <p className="mt-2 text-brand-text-secondary text-scene-desc-mobile font-body">Years Experience</p>
-        </div>
-      </div>
-    </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-20 bg-brand-bg">
+    <section className="bg-brand-bg">
       <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

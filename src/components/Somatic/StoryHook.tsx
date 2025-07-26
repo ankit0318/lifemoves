@@ -46,7 +46,7 @@ export default function StoryHook() {
   }, []);
 
   return (
-    <div className="bg-brand-bg text-brand-text font-body min-h-screen py-24 sm:py-32 px-4">
+    <div className="bg-brand-bg text-brand-text font-body min-h-screen   px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-hero-mobile md:text-hero-desktop text-brand-text font-bold leading-tight font-heading">

@@ -37,3 +37,7 @@
     line-height: 1.7;
   }
 }
+
+.section-spacing {
+  @apply mb-48;
+}
