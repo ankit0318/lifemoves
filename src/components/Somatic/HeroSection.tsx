@@ -19,9 +19,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <>
       {/* Hero content with gradient background */}
-      <div className="relative z-10 min-h-screen w-full max-sm:pt-5">
+      <div className="relative z-10 min-h-screen w-full max-sm:pt-5 bg-brand-bg">
         <div className="absolute inset-0 md:h-2/3 h-3/4" style={{
           background: 'linear-gradient(180deg, rgba(75, 0, 130, 1) 13%, rgba(190, 181, 242, 1) 99%)',
+          borderRadius: '0 0 10px 10px',
         }}></div>
         <div className="relative z-20 container mx-auto px-6 text-center py-16 md:py-24">
       {/* Badge */}

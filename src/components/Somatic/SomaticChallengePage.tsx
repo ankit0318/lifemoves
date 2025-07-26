@@ -32,10 +32,10 @@ export default function SomaticChallengePage() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -60,10 +60,10 @@ export default function SomaticChallengePage() {
         </div>
         <div id="challenge">
           <StoryHook />
-        
+
           <ChallengeOverview />
- 
-        
+
+
         </div>
         <WhoItsFor />
         <div id="testimonials">
@@ -71,17 +71,17 @@ export default function SomaticChallengePage() {
         </div>
         <OfferSection />
         {mounted && !isMobile && <GuideSection5 />}
-        
+
         {mounted && <MobileGuideSection />}
         <div id="faq">
           <FAQSection />
         </div>
         <div id="join">
-    
-        
-        <GuideSection6 />
+
+
+          <GuideSection6 />
         </div>
-        
+
         {mounted && isMobile && showStickyCTA && <StickyMobileCTA />}
       </div>
     </div>
