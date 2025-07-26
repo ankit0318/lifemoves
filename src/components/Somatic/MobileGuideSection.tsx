@@ -6,7 +6,7 @@ import PaletteIcon from '@mui/icons-material/Palette';
 
 // Use local images if available, otherwise fallback to the provided URLs
 import amanImg from '../../../public/aman.jpg';
-import logoImg from '../../../public/lifemoves.svg';
+
 
 const MobileGuideSection = () => {
   return (

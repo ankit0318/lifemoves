@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import Image from "next/image";
 import DirectionsWalkIcon from '@mui/icons-material/DirectionsWalk';
 import TimerIcon from '@mui/icons-material/Timer';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
@@ -21,15 +22,15 @@ function getTimeRemaining(target: Date) {
 
 const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
   // Default: 2 days from now
-  const defaultTarget = React.useMemo(() => {
+  const target = useMemo(() => {
+    if (targetDate) return new Date(targetDate);
     const d = new Date();
     d.setDate(d.getDate() + 2);
     d.setHours(d.getHours() + 10); // mimic original default
     d.setMinutes(d.getMinutes() + 45);
     d.setSeconds(d.getSeconds() + 33);
     return d;
-  }, []);
-  const target = targetDate ? new Date(targetDate) : defaultTarget;
+  }, [targetDate]);
 
   const [time, setTime] = useState(() => getTimeRemaining(target));
 
@@ -38,7 +39,7 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
       setTime(getTimeRemaining(target));
     }, 1000);
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [target]);
 
   return (
     <div className="bg-brand-bg flex items-center justify-center min-h-screen">
@@ -48,15 +49,18 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
             Your body is the best guide you never listened to.
           </h1>
           <p className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary font-body">
-            Let's change that — in just 10 minutes a day.
+            Let&apos;s change that — in just 10 minutes a day.
           </p>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
           <div className="md:w-1/2 flex justify-center mb-8 md:mb-0">
-            <img
-              alt="Illustration of a person's head with a spiral inside and a plant growing beside it."
+            <Image
+              alt="Illustration of a person&apos;s head with a spiral inside and a plant growing beside it."
               className="w-full max-w-xs md:max-w-md h-auto"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ7L0qjIJChoDEkIblwjRCCUe36cVGay3mqdSyqkF3i_fTDAATh0I8RswDRjDzumXK5BGzAtEJj-FomAW3TNMLD9ZXk6LuOi3LDOaDH8wtHBjmkjnkpbLM_h54iaFYEohaPFjZpsv3um8aYuQZWhn_gSlIu5lpJdQb-2MD3hmg9Efks4MWv0oEiRmBcNJJl5QR2MSA3nD0_mPcT3jWQvXUmj2a0zxHLNNQics-BNfoAQFQRJkbd-hUOn10l31Ho4IllhHYKKE9upc"
+              width={400}
+              height={400}
+              priority
             />
           </div>
           <div className="text-center md:text-left md:w-1/2">
@@ -64,7 +68,7 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
               Join The 7-Day Reset
             </h2>
             <p className="text-brand-text-secondary mb-4 md:mb-6 text-scene-desc-mobile md:text-scene-desc-desktop font-body">
-              Join 1000+ people who've already started their reset.
+              Join 1000+ people who&apos;ve already started their reset.
             </p>
             <div className="space-y-2 md:space-y-3 max-sm:flex max-sm:justify-center max-sm:items-center max-sm:flex-col text-brand-text mb-4 md:mb-6">
               <div className="flex items-center">
