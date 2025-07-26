@@ -1,28 +1,26 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --text: #0e180b;
-    --background: #EFEFEF;
-    --primary: #beb5f2;
-    --secondary: #9eccaf;
-    --accent: #5859a7;
-  }
-  .dark {
-    --text: #eaf4e7;
-    --background: #0f0f0f;
-    --primary: #160d4a;
-    --secondary: #336144;
-    --accent: #5859a7;
-  }
+@theme {
+  /* Brand colors make bg-brand-*, text-brand-* utilities available */
+  --color-brand-text: #0e180b;
+  --color-brand-bg: #EFEFEF;
+  --color-brand-primary: #beb5f2;
+  --color-brand-secondary: #9eccaf;
+  --color-brand-accent: #5859a7;
+  --color-brand-hero: #4b0082;
+  /* Fonts */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Lato", sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--text);
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  line-height: 1.7;
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1.7;
+  }
 }

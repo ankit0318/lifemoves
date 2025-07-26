@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   { name: 'Home', href: '#' },
@@ -27,11 +28,12 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full from-indigo-50 via-white to-purple-50 backdrop-blur-md fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+    <nav className="w-full fixed top-0 left-0 z-20 bg-transparent ">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="#" className="flex items-center font-extrabold text-3xl text-indigo-700 flex-shrink-0">
-          <img src='/lifemoves.webp' alt='LifeMoves' className='h-10 w-auto sm:h-12 md:h-14 lg:h-16 object-contain' />
+          <Image src="/lifemoves.png" alt="LifeMoves" width={160} height={64} priority className="h-24 w-auto sm:h-28 md:h-32 lg:h-36 object-contain" />
         </Link>
         {/* Desktop Nav Links Centered */}
         <div className="hidden md:flex flex-1 items-center justify-center gap-8">
@@ -39,7 +41,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-gray-500 hover:text-gray-900 font-medium text-md transition-colors duration-200"
+              className="text-white hover:text-gray-900 font-medium text-md transition-colors duration-200"
               onClick={e => handleNavClick(e, link.href, () => {})}
             >
               {link.name}
@@ -50,19 +52,21 @@ export default function Navbar() {
         <div className="hidden md:block ml-4">
           <a
             href="#join"
-            className="bg-gray-900 text-white px-6 py-1 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg"
+            className="text-brand-accent px-6 py-1 rounded-full bg-white font-bold hover:bg-gray-800 transition-colors text-lg"
+            
           >
             Join
           </a>
         </div>
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 text-black"
+          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
+          {menuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
         </button>
+        </div>
       </div>
       {/* Mobile Menu */}
       {menuOpen && (
@@ -80,7 +84,8 @@ export default function Navbar() {
             ))}
             <a
               href="#join"
-              className="mt-4 bg-gray-900 text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg text-center"
+              className="mt-4 text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg text-center"
+              style={{ backgroundColor: '#5859a7' }}
               onClick={() => setMenuOpen(false)}
             >
               Join
@@ -90,4 +95,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-} 
+}

@@ -59,7 +59,7 @@ export default function SomaticChallengePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       <Navbar />
-      <div className="relative pt-2 md:pt-8">
+      <div className="relative ">
         <div ref={heroRef}>
           <HeroSection />
         </div>
