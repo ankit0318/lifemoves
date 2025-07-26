@@ -35,7 +35,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-green-50">
+    <section className="py-20 bg-brand-bg">
       <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,10 +44,10 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-hero-mobile md:text-hero-desktop font-bold text-brand-text mb-6 font-heading">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-subheading-mobile text-brand-text-secondary font-body">
             Everything you need to know before joining
           </p>
         </motion.div>
@@ -64,16 +64,16 @@ export default function FAQSection() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-brand-secondary/10 transition-colors duration-200"
               >
-                <h3 className="text-lg font-semibold text-gray-900">
+                <h3 className="text-scene-heading-desktop font-semibold text-brand-text font-heading">
                   {faq.question}
                 </h3>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <ChevronDown className="w-5 h-5 text-gray-500" />
+                  <ChevronDown className="w-5 h-5 text-brand-text-secondary" />
                 </motion.div>
               </button>
               
@@ -87,7 +87,7 @@ export default function FAQSection() {
                     className="overflow-hidden"
                   >
                     <div className="px-6 pb-4">
-                      <p className="text-gray-700 leading-relaxed">
+                      <p className="text-brand-text-secondary leading-relaxed text-scene-desc-mobile font-body">
                         {faq.answer}
                       </p>
                     </div>

@@ -49,11 +49,11 @@ export default function StoryHook() {
     <div className="bg-brand-bg text-brand-text font-body min-h-screen py-24 sm:py-32 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-7xl text-brand-text font-bold leading-tight font-body">
+          <h1 className="text-hero-mobile md:text-hero-desktop text-brand-text font-bold leading-tight font-heading">
             Your body&apos;s been trying <br className="hidden md:block" /> to tell you things.
           </h1>
-          <p className="md:text-4xl text-2xl text-brand-text-secondary mt-4 font-body">
-            You&apos;ve just been... <span className="text-brand-primary md:text-5xl text-4xl font-bold">busy.</span>
+          <p className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary mt-4 font-body">
+            You&apos;ve just been... <span className="text-brand-primary text-highlight-mobile md:text-highlight-desktop font-bold font-body">busy.</span>
           </p>
         </div>
         {/* Responsive Layout: Mobile = stacked, Desktop = 3-column */}
@@ -65,8 +65,8 @@ export default function StoryHook() {
                 key={scene.text}
                 className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx ? 'opacity-100' : 'opacity-10'}`}
               >
-                <h3 className="text-xl font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
-                <p className="text-brand-text text-base font-body">{scene.description}</p>
+                <h3 className="text-scene-heading-desktop font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
+                <p className="text-brand-text text-scene-desc-desktop font-body">{scene.description}</p>
               </div>
             ))}
           </div>
@@ -86,8 +86,8 @@ export default function StoryHook() {
             </div>
             {/* Mobile: show only current text+desc below image */}
             <div className="md:hidden mt-8 w-full">
-              <h3 className="text-2xl font-semibold mb-2 text-center text-brand-text font-heading">{currentScene.text}</h3>
-              <p className="text-brand-text text-lg text-center font-body">{currentScene.description}</p>
+              <h3 className="text-scene-heading-mobile font-semibold mb-2 text-center text-brand-text font-heading">{currentScene.text}</h3>
+              <p className="text-brand-text text-scene-desc-mobile text-center font-body">{currentScene.description}</p>
             </div>
         </div>
           {/* Right column: last 3 text+desc */}
@@ -97,8 +97,8 @@ export default function StoryHook() {
                 key={scene.text}
                 className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx + 3 ? 'opacity-100' : 'opacity-10'}`}
               >
-                <h3 className="text-xl font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
-                <p className="text-brand-text text-base font-body">{scene.description}</p>
+                <h3 className="text-scene-heading-desktop font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
+                <p className="text-brand-text text-scene-desc-desktop font-body">{scene.description}</p>
               </div>
             ))}
           </div>

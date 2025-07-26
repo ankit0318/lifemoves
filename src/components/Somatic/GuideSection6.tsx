@@ -66,17 +66,17 @@ const SomaticWellnessApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fcfa] text-[#0e1b17]">
+    <div className="min-h-screen bg-brand-bg text-brand-text font-body">
       {/* Hero Section */}
       <main className="flex-grow">
         <section className="py-8 px-4 sm:py-12">
           <div className="max-w-4xl mx-auto">
             {/* Centered Heading for Desktop */}
             <div className="mb-8">
-              <h1 className="text-2xl sm:text-4xl font-bold leading-tight tracking-tight mb-4 text-center mx-auto">
+              <h1 className="text-hero-mobile sm:text-hero-desktop font-bold leading-tight tracking-tight mb-4 text-center mx-auto font-heading">
                 Your Body Is The Best Guide You Never Listened To
               </h1>
-              <p className="text-lg text-[#4e977f] mb-6 text-center mx-auto max-w-xl">
+              <p className="text-subheading-mobile text-brand-text-secondary mb-6 text-center mx-auto max-w-xl font-body">
                 Let's change that — in just 10 minutes a day.
               </p>
             </div>
@@ -93,12 +93,12 @@ const SomaticWellnessApp = () => {
               {/* Pricing Card */}
               {/* <CountdownTimer /> */}
               <div className="w-96 max-w-full flex flex-col items-center sm:items-start justify-center" id="pricing">
-                <div className="bg-[#f8fcfa] border border-[#d0e7df] rounded-2xl p-4 shadow-lg w-full flex flex-col justify-center">
+                <div className="bg-brand-bg border border-brand-secondary rounded-2xl p-4 shadow-lg w-full flex flex-col justify-center">
                   <div className="text-center ">
-                    <h2 className="text-2xl font-bold mb-2">The 7-Day Reset Challenge</h2>
+                    <h2 className="text-scene-heading-mobile font-bold mb-2 text-brand-text font-heading">The 7-Day Reset Challenge</h2>
                     <div className="flex items-baseline justify-center  gap-2 mb-2">
-                      <span className="text-4xl font-black text-[#14b781]">₹999</span>
-                      <span className="text-lg font-semibold text-[#4e977f] line-through">₹2499</span>
+                      <span className="text-highlight-mobile font-black text-brand-primary font-heading">₹999</span>
+                      <span className="text-subheading-mobile font-semibold text-brand-text-secondary line-through font-body">₹2499</span>
                     </div>
                     {/* Countdown Timer */}
                     
@@ -107,7 +107,7 @@ const SomaticWellnessApp = () => {
                       <input
                         type="text"
                         placeholder="Name"
-                        className="w-full border border-[#d0e7df] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#14b781]"
+                        className="w-full border border-brand-secondary rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary font-body"
                         required
                         value={formData.name}
                         onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -115,7 +115,7 @@ const SomaticWellnessApp = () => {
                       <input
                         type="tel"
                         placeholder="WhatsApp Number"
-                        className="w-full border border-[#d0e7df] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#14b781]"
+                        className="w-full border border-brand-secondary rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary font-body"
                         required
                         value={formData.number}
                         onChange={e => setFormData({ ...formData, number: e.target.value })}
@@ -123,7 +123,7 @@ const SomaticWellnessApp = () => {
                       <input
                         type="email"
                         placeholder="Email"
-                        className="w-full border border-[#d0e7df] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#14b781]"
+                        className="w-full border border-brand-secondary rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary font-body"
                         required
                         value={formData.email}
                         onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -131,11 +131,11 @@ const SomaticWellnessApp = () => {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="w-full bg-[#14b781] text-[#0e1b17] hover:bg-opacity-90 active:bg-opacity-80 transition-all duration-200 font-bold py-3 px-4 rounded-full text-lg shadow-lg transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:transform-none"
+                        className="w-full bg-brand-primary text-brand-text hover:bg-brand-accent transition-all duration-200 font-bold py-3 px-4 rounded-full text-scene-desc-mobile shadow-lg transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:transform-none font-body"
                       >
                         {isLoading ? (
                           <div className="flex items-center justify-center gap-2">
-                            <div className="w-5 h-5 border-2 border-[#0e1b17] border-t-transparent rounded-full animate-spin"></div>
+                            <div className="w-5 h-5 border-2 border-brand-text border-t-transparent rounded-full animate-spin"></div>
                             Processing...
                           </div>
                         ) : (
@@ -145,8 +145,8 @@ const SomaticWellnessApp = () => {
                     </form>
                     {/* Custom Countdown below button */}
                     <div className="mt-4 flex flex-col items-center">
-                      <span className="text-xs text-[#4e977f] mb-1 font-semibold uppercase tracking-wide">Offer ends in</span>
-                      <div className="font-mono text-2xl font-bold text-[#14b781] flex items-center gap-1">
+                      <span className="text-xs text-brand-text-secondary mb-1 font-semibold uppercase tracking-wide font-body">Offer ends in</span>
+                      <div className="font-mono text-scene-heading-mobile font-bold text-brand-primary flex items-center gap-1 font-heading">
                         <span>{formatTime(timeLeft.hours)}</span>
                         <span>:</span>
                         <span>{formatTime(timeLeft.minutes)}</span>
@@ -180,9 +180,9 @@ const SomaticWellnessApp = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-[#d0e7df]">
-        <div className="max-w-sm mx-auto px-4 py-6 text-center text-[#4e977f]">
-          <p className="text-sm">© 2024 Somatic Wellness. All rights reserved.</p>
+      <footer className="bg-white border-t border-brand-secondary">
+        <div className="max-w-sm mx-auto px-4 py-6 text-center text-brand-text-secondary font-body">
+          <p className="text-scene-desc-mobile">© 2024 Somatic Wellness. All rights reserved.</p>
         </div>
       </footer>
     </div>

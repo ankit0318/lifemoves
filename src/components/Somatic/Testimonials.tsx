@@ -60,15 +60,15 @@ const TestimonialSection = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <div className="bg-gray-50 min-h-screen flex items-center justify-center py-16 px-4">
+    <div className="bg-brand-bg min-h-screen flex items-center justify-center py-16 px-4">
       <div className="container mx-auto max-w-6xl relative">
         {/* Background Decorative Element */}
         <div className="absolute top-0 right-0 -mt-8 -mr-8 opacity-30">
-          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-purple-200 to-gray-200"></div>
+          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-brand-primary to-brand-secondary"></div>
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-6xl  flex justify-center items-center md:text-5xl  font-bold text-gray-800 md:mb-16 mb-10 max-sm:leading-16 text-left">
+        <h1 className="text-hero-mobile md:text-hero-desktop flex justify-center items-center font-bold text-brand-text font-heading md:mb-16 mb-10 max-sm:leading-16 text-left">
           What they say about us
         </h1>
 
@@ -76,11 +76,11 @@ const TestimonialSection = () => {
           {/* Mobile Quote Bubble (above image) */}
           <div className="block lg:hidden w-full md:mb-6">
             <div className="relative bg-white p-8 rounded-3xl shadow-lg md:mb-8">
-              <p className="text-gray-700 text-lg max-sm:text-2xl leading-relaxed max-sm:leading-8">
+              <p className="text-brand-text text-scene-desc-mobile leading-relaxed max-sm:leading-8 font-body">
                 &quot;{current.quote.split('Thank you').map((part, index) => 
                   index === 0 ? part : (
                     <span key={index}>
-                      <span className="font-bold text-indigo-600">Thank you</span>
+                      <span className="font-bold text-brand-primary">Thank you</span>
                       {part}
                     </span>
                   )
@@ -91,7 +91,7 @@ const TestimonialSection = () => {
             </div>
             {/* Testimonial Image, Name, and Title (Mobile Only) */}
             <div className="flex flex-col items-center mt-6 mb-4">
-              <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-1 rounded-full shadow-md">
+              <div className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-bg p-1 rounded-full shadow-md">
                 <div className="bg-white rounded-full overflow-hidden">
                   <Image 
                     alt={`${current.name}, ${current.title}`}
@@ -102,10 +102,10 @@ const TestimonialSection = () => {
                   />
                 </div>
               </div>
-              <h3 className="font-bold text-gray-800 text-center mt-2 text-lg">{current.name}</h3>
-              <p className="text-sm text-gray-600 text-center">{current.title}</p>
+              <h3 className="font-bold text-brand-text text-center mt-2 text-scene-desc-desktop font-heading">{current.name}</h3>
+              <p className="text-scene-desc-mobile text-brand-text-secondary text-center font-body">{current.title}</p>
             </div>
-            <div className="border-2 md:hidden absolute  right-2 bottom-80 flex justify-center items-center border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+            <div className="border-2 md:hidden absolute  right-2 bottom-80 flex justify-center items-center border-brand-primary text-brand-primary px-4 py-2 rounded-full text-scene-desc-mobile font-semibold font-body">
                 {currentTestimonial + 1} / {testimonials.length}
               </div>
             
@@ -116,7 +116,7 @@ const TestimonialSection = () => {
             {/* Profile Card */}
             <div className="w-1/3 flex justify-center">
               <div className="relative">
-                <div className="bg-gradient-to-br from-purple-200 via-purple-100 to-gray-200 p-2 rounded-3xl shadow-xl">
+                <div className="bg-gradient-to-br from-brand-primary via-brand-secondary to-brand-bg p-2 rounded-3xl shadow-xl">
                   <div className="bg-white rounded-2xl overflow-hidden">
                     <Image 
                       alt={`${current.name}, ${current.title}`}
@@ -126,19 +126,19 @@ const TestimonialSection = () => {
                       height={256}
                     />
                   </div>
-                  <h3 className="font-bold text-gray-800 text-center mt-2">{current.name}</h3>
-                  <p className="text-sm text-gray-600 text-center">{current.title}</p>
+                  <h3 className="font-bold text-brand-text text-center mt-2 text-scene-desc-desktop font-heading">{current.name}</h3>
+                  <p className="text-scene-desc-mobile text-brand-text-secondary text-center font-body">{current.title}</p>
                 </div>
               </div>
             </div>
             {/* Quote Card */}
             <div className="w-1/2 flex flex-col items-center">
               <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-4 lg:max-w-lg w-full">
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-brand-text text-scene-desc-desktop leading-relaxed font-body">
                   &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
                       <span key={index}>
-                        <span className="font-bold text-indigo-600">Thank you</span>
+                        <span className="font-bold text-brand-primary">Thank you</span>
                         {part}
                       </span>
                     )
@@ -152,20 +152,20 @@ const TestimonialSection = () => {
                 <div className="flex items-center">
                   <button 
                     onClick={prevTestimonial}
-                    className="bg-gray-200 text-gray-600 p-3 rounded-full hover:bg-gray-300 transition-colors duration-300 mr-4 hover:shadow-md"
+                    className="bg-brand-secondary/20 text-brand-text p-3 rounded-full hover:bg-brand-secondary/30 transition-colors duration-300 mr-4 hover:shadow-md"
                     aria-label="Previous testimonial"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button 
                     onClick={nextTestimonial}
-                    className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors duration-300 hover:shadow-md"
+                    className="bg-brand-primary text-white p-3 rounded-full hover:bg-brand-accent transition-colors duration-300 hover:shadow-md"
                     aria-label="Next testimonial"
                   >
                     <ChevronRight size={24} />
                   </button>
                 </div>
-                <div className="border-2 border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="border-2 border-brand-primary text-brand-primary px-4 py-2 rounded-full text-scene-desc-mobile font-semibold font-body">
                   {currentTestimonial + 1} / {testimonials.length}
                 </div>
               </div>
@@ -178,8 +178,8 @@ const TestimonialSection = () => {
                       onClick={() => selectTestimonial(index)}
                       className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
                         index === currentTestimonial 
-                          ? 'border-indigo-600 shadow-lg' 
-                          : 'border-gray-300 hover:border-gray-400'
+                          ? 'border-brand-primary shadow-lg' 
+                          : 'border-brand-text-secondary hover:border-brand-secondary'
                       }`}
                       aria-label={`View testimonial from ${testimonial.name}`}
                     >
@@ -203,14 +203,14 @@ const TestimonialSection = () => {
             <div className="flex items-center justify-center lg:justify-start mb-8">
               <button 
                 onClick={prevTestimonial}
-                className="bg-gray-200 text-gray-600 p-3 rounded-full hover:bg-gray-300 transition-colors duration-300 mr-4 hover:shadow-md"
+                className="bg-brand-secondary/20 text-brand-text p-3 rounded-full hover:bg-brand-secondary/30 transition-colors duration-300 mr-4 hover:shadow-md"
                 aria-label="Previous testimonial"
               >
                 <ChevronLeft size={24} />
               </button>
               <button 
                 onClick={nextTestimonial}
-                className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 transition-colors duration-300 hover:shadow-md"
+                className="bg-brand-primary text-white p-3 rounded-full hover:bg-brand-accent transition-colors duration-300 hover:shadow-md"
                 aria-label="Next testimonial"
               >
                 <ChevronRight size={24} />
@@ -219,11 +219,11 @@ const TestimonialSection = () => {
             {/* Desktop Quote Bubble (original place) */}
             <div className="hidden lg:block">
               <div className="relative bg-white p-8 rounded-3xl shadow-lg mb-8 lg:max-w-lg">
-                <p className="text-gray-700 text-lg leading-relaxed">
+                <p className="text-brand-text text-scene-desc-desktop leading-relaxed font-body">
                   &quot;{current.quote.split('Thank you').map((part, index) => 
                     index === 0 ? part : (
                       <span key={index}>
-                        <span className="font-bold text-indigo-600">Thank you</span>
+                        <span className="font-bold text-brand-primary">Thank you</span>
                         {part}
                       </span>
                     )
@@ -236,7 +236,7 @@ const TestimonialSection = () => {
             {/* Pagination and Thumbnails */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
               {/* Page Indicator */}
-              <div className="border-2 max-sm:hidden  border-indigo-600 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold">
+              <div className="border-2 max-sm:hidden  border-brand-primary text-brand-primary px-4 py-2 rounded-full text-scene-desc-mobile font-semibold font-body">
                 {currentTestimonial + 1} / {testimonials.length}
               </div>
 
@@ -248,8 +248,8 @@ const TestimonialSection = () => {
                     onClick={() => selectTestimonial(index)}
                     className={`w-16 h-16 rounded-full border-2 p-1 transition-all duration-300 hover:scale-105 ${
                       index === currentTestimonial 
-                        ? 'border-indigo-600 shadow-lg' 
-                        : 'border-gray-300 hover:border-gray-400'
+                        ? 'border-brand-primary shadow-lg' 
+                        : 'border-brand-text-secondary hover:border-brand-secondary'
                     }`}
                     aria-label={`View testimonial from ${testimonial.name}`}
                   >

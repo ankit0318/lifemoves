@@ -10,8 +10,20 @@
   --color-brand-accent: #5859a7;
   --color-brand-hero: #4b0082;
   /* Fonts */
-  --font-heading: "Poppins", sans-serif;
+  --font-heading: "Lato", sans-serif;
   --font-body: "Lato", sans-serif;
+  
+  /* Typography Scale */
+  --text-hero-mobile: 2.25rem; /* 36px - text-4xl */
+  --text-hero-desktop: 4.5rem; /* 72px - text-7xl */
+  --text-subheading-mobile: 1.5rem; /* 24px - text-2xl */
+  --text-subheading-desktop: 2.25rem; /* 36px - text-4xl */
+  --text-highlight-mobile: 2.25rem; /* 36px - text-4xl */
+  --text-highlight-desktop: 3rem; /* 48px - text-5xl */
+  --text-scene-heading-desktop: 1.25rem; /* 20px - text-xl */
+  --text-scene-heading-mobile: 1.5rem; /* 24px - text-2xl */
+  --text-scene-desc-desktop: 1rem; /* 16px - text-base */
+  --text-scene-desc-mobile: 1.125rem; /* 18px - text-lg */
 }
 
 @layer base {

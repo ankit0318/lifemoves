@@ -84,10 +84,10 @@ export default function ChallengeOverview() {
           viewport={{ once: true }}
           className="text-center mb-28"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-text mb-6 font-body">
+          <h2 className="text-hero-mobile md:text-hero-desktop font-bold text-brand-text mb-6 font-heading">
             The 7-Day Somatic Reset
           </h2>
-          <p className="text-xl md:text-2xl text-brand-text-secondary  mb-4 font-body">
+          <p className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary  mb-4 font-body">
             A body-first experiment to help you feel like yourself again.
           </p>
           <div className="inline-flex items-center gap-2 bg-brand-primary px-4 py-2 rounded-full">
@@ -122,10 +122,10 @@ export default function ChallengeOverview() {
                   <div className="hidden md:flex justify-end">
                     {isLeftText ? (
                       <div className="flex flex-col items-end text-right max-w-xs">
-                        <h3 className="text-xl font-bold text-brand-text mb-1 font-body">
+                        <h3 className="text-scene-heading-desktop font-bold text-brand-text mb-1 font-heading">
                         {day.title}
                         </h3>
-                        <p className="text-brand-textSecondary mb-2 font-body">
+                        <p className="text-scene-desc-desktop text-brand-text-secondary mb-2 font-body">
                           {day.description}
                         </p>
                       </div>
@@ -155,10 +155,10 @@ export default function ChallengeOverview() {
                       </div>
                     ) : (
                       <div className="flex flex-col items-start text-left max-w-xs">
-                        <h3 className="text-xl font-bold text-brand-text mb-1 font-body">
+                        <h3 className="text-scene-heading-desktop font-bold text-brand-text mb-1 font-heading">
                            {day.title}
                         </h3>
-                        <p className="text-brand-textSecondary mb-2 font-body">
+                        <p className="text-scene-desc-desktop text-brand-text-secondary mb-2 font-body">
                           {day.description}
                         </p>
                       </div>
@@ -185,10 +185,10 @@ export default function ChallengeOverview() {
                           <Icon className="w-4 h-4" />
                           <span>Day {day.day}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-brand-text mb-2 leading-tight font-body">
+                        <h3 className="text-scene-heading-mobile font-bold text-brand-text mb-2 leading-tight font-heading">
                           {day.title}
                         </h3>
-                        <p className="text-brand-textSecondary text-base leading-relaxed font-body">
+                        <p className="text-scene-desc-mobile text-brand-text-secondary leading-relaxed font-body">
                           {day.description}
                         </p>
                       </div>

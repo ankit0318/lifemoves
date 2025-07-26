@@ -41,13 +41,13 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="bg-emerald-50 flex items-center justify-center min-h-screen">
+    <div className="bg-brand-bg flex items-center justify-center min-h-screen">
       <div className="max-w-6xl w-full px-4 py-8 md:p-8">
         <div className="text-center mb-6 md:mb-12">
-          <h1 className="text-3xl md:text-6xl font-bold text-emerald-800 mb-4 md:mb-6" style={{ fontFamily: 'Merriweather, serif' }}>
+          <h1 className="text-hero-mobile md:text-hero-desktop font-bold text-brand-text mb-4 md:mb-6 font-heading">
             Your body is the best guide you never listened to.
           </h1>
-          <p className="text-lg md:text-xl text-emerald-700">
+          <p className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary font-body">
             Let's change that — in just 10 minutes a day.
           </p>
         </div>
@@ -60,52 +60,52 @@ const GuidedSection4: React.FC<GuidedSection4Props> = ({ targetDate }) => {
             />
           </div>
           <div className="text-center md:text-left md:w-1/2">
-            <h2 className="text-2xl md:text-4xl font-bold text-emerald-800 mb-1 md:mb-2" style={{ fontFamily: 'Merriweather, serif' }}>
+            <h2 className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-text mb-1 md:mb-2 font-heading">
               Join The 7-Day Reset
             </h2>
-            <p className="text-emerald-700 mb-4 md:mb-6 text-base md:text-lg">
+            <p className="text-brand-text-secondary mb-4 md:mb-6 text-scene-desc-mobile md:text-scene-desc-desktop font-body">
               Join 1000+ people who've already started their reset.
             </p>
-            <div className="space-y-2 md:space-y-3 max-sm:flex max-sm:justify-center max-sm:items-center max-sm:flex-col text-emerald-800 mb-4 md:mb-6">
+            <div className="space-y-2 md:space-y-3 max-sm:flex max-sm:justify-center max-sm:items-center max-sm:flex-col text-brand-text mb-4 md:mb-6">
               <div className="flex items-center">
-                <DirectionsWalkIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">7 days of guided somatic movement</p>
+                <DirectionsWalkIcon className="text-brand-primary mr-2 md:mr-3" fontSize="medium" />
+                <p className="text-scene-desc-mobile md:text-scene-desc-desktop font-body">7 days of guided somatic movement</p>
               </div>
               <div className="flex items-center">
-                <TimerIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">Just 10 minutes daily</p>
+                <TimerIcon className="text-brand-primary mr-2 md:mr-3" fontSize="medium" />
+                <p className="text-scene-desc-mobile md:text-scene-desc-desktop font-body">Just 10 minutes daily</p>
               </div>
               <div className="flex items-center">
-                <AllInclusiveIcon className="text-amber-600 mr-2 md:mr-3" fontSize="medium" />
-                <p className="text-sm md:text-base">Lifetime access</p>
+                <AllInclusiveIcon className="text-brand-primary mr-2 md:mr-3" fontSize="medium" />
+                <p className="text-scene-desc-mobile md:text-scene-desc-desktop font-body">Lifetime access</p>
               </div>
             </div>
             <div className="flex items-baseline gap-2 md:gap-4 mb-4 md:mb-6 justify-center md:justify-start">
-              <span className="text-3xl md:text-5xl font-bold text-emerald-800">₹999</span>
-              <span className="text-lg md:text-2xl text-gray-500 line-through">₹2499</span>
+              <span className="text-highlight-mobile md:text-highlight-desktop font-bold text-brand-text font-heading">₹999</span>
+              <span className="text-subheading-mobile md:text-subheading-desktop text-brand-text-secondary line-through font-body">₹2499</span>
             </div>
             <div className="flex justify-center md:justify-start items-center gap-2 md:gap-4 mb-6 md:mb-8">
               <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.days.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Days</p>
+                <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">{time.days.toString().padStart(2, '0')}</span>
+                <p className="text-scene-desc-mobile text-brand-text-secondary font-body">Days</p>
               </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
+              <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">:</span>
               <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.hours.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Hours</p>
+                <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">{time.hours.toString().padStart(2, '0')}</span>
+                <p className="text-scene-desc-mobile text-brand-text-secondary font-body">Hours</p>
               </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
+              <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">:</span>
               <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.minutes.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Minutes</p>
+                <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">{time.minutes.toString().padStart(2, '0')}</span>
+                <p className="text-scene-desc-mobile text-brand-text-secondary font-body">Minutes</p>
               </div>
-              <span className="text-2xl md:text-4xl font-bold text-amber-600">:</span>
+              <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">:</span>
               <div className="text-center">
-                <span className="text-2xl md:text-4xl font-bold text-amber-600">{time.seconds.toString().padStart(2, '0')}</span>
-                <p className="text-xs md:text-sm text-emerald-700">Seconds</p>
+                <span className="text-scene-heading-mobile md:text-scene-heading-desktop font-bold text-brand-primary font-heading">{time.seconds.toString().padStart(2, '0')}</span>
+                <p className="text-scene-desc-mobile text-brand-text-secondary font-body">Seconds</p>
               </div>
             </div>
-            <button className="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg flex items-center justify-center shadow-md transition-colors text-base md:text-lg w-full md:w-auto">
+            <button className="bg-brand-primary hover:bg-brand-accent text-white font-bold py-3 md:py-4 px-6 md:px-8 rounded-lg flex items-center justify-center shadow-md transition-colors text-scene-desc-mobile md:text-scene-desc-desktop w-full md:w-auto font-body">
               <RocketLaunchIcon className="mr-1 md:mr-2" fontSize="medium" />
               Start Your Reset
             </button>

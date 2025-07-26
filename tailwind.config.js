@@ -22,6 +22,18 @@ module.exports = {
         heading: ['Poppins', 'sans-serif'],
         body: ['Lato', 'sans-serif'],
       },
+      fontSize: {
+        'hero-mobile': 'var(--text-hero-mobile)',
+        'hero-desktop': 'var(--text-hero-desktop)',
+        'subheading-mobile': 'var(--text-subheading-mobile)',
+        'subheading-desktop': 'var(--text-subheading-desktop)',
+        'highlight-mobile': 'var(--text-highlight-mobile)',
+        'highlight-desktop': 'var(--text-highlight-desktop)',
+        'scene-heading-desktop': 'var(--text-scene-heading-desktop)',
+        'scene-heading-mobile': 'var(--text-scene-heading-mobile)',
+        'scene-desc-desktop': 'var(--text-scene-desc-desktop)',
+        'scene-desc-mobile': 'var(--text-scene-desc-mobile)',
+      },
      
     },
   },

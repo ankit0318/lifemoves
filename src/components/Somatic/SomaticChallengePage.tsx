@@ -6,21 +6,16 @@ import ChallengeOverview from './ChallengeOverview';
 import WhoItsFor from './WhoItsFor';
 import Testimonials from './Testimonials';
 import OfferSection from './OfferSection';
-import GuideSection from './GuideSection';
+
 import FAQSection from './FAQSection';
-import FinalCTA from './FinalCta';
+
 import StickyMobileCTA from './StickyMobileCta';
 import Navbar from './Navbar';
-import GuideSection2 from './GuideSection2';
-import GuideSection3 from './GuideSection3';
-import GuidedSection4 from './GuidedSection4';
+
 import GuideSection5 from './GuideSection5';
 import GuideSection6 from './GuideSection6';
 // import StepSection from './StepSection';
 
-import SomaticReset7Day from './SomaticReset7Day';
-
-import StepSection from './StepSection';
 import MobileGuideSection from './MobileGuideSection';
 
 export default function SomaticChallengePage() {
@@ -67,8 +62,7 @@ export default function SomaticChallengePage() {
           <StoryHook />
         
           <ChallengeOverview />
-          {/* <StepSection />
-          <SomaticReset7Day /> */}
+ 
         
         </div>
         <WhoItsFor />

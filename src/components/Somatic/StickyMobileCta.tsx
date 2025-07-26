@@ -12,15 +12,15 @@ export default function StickyMobileCTA() {
       animate={{ y: 0 }}
       className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
     >
-      <div className="bg-white border-t border-gray-200 p-4 shadow-lg">
+      <div className="bg-brand-bg border-t border-brand-secondary p-4 shadow-lg">
         <div className="flex items-center justify-between gap-4">
           <div className="flex-1">
-            <div className="text-sm text-gray-600">7-Day Reset Challenge</div>
-            <div className="text-lg font-bold text-gray-900">₹999</div>
+            <div className="text-scene-desc-mobile text-brand-text-secondary font-body">7-Day Reset Challenge</div>
+            <div className="text-highlight-mobile font-bold text-brand-text font-heading">₹999</div>
           </div>
           <Button
             size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 font-semibold rounded-full shadow-lg"
+            className="bg-brand-primary hover:bg-brand-accent text-white px-6 py-3 font-semibold rounded-full shadow-lg text-scene-desc-mobile font-body"
           >
             <CheckCircle className="w-4 h-4 mr-2" />
             Join Now

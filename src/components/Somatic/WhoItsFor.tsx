@@ -101,8 +101,8 @@ const WhoItsFor = () => {
   };
 
   return (
-    <div className="relative w-full max-w-6xl mx-auto py-20 px-4">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">This is for you if…</h2>
+    <div className="relative w-full max-w-6xl mx-auto py-20 px-4 bg-brand-bg">
+      <h2 className="text-hero-mobile md:text-hero-desktop font-bold text-center mb-10 text-brand-text font-heading">This is for you if…</h2>
       <div className="relative h-96 overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           {cards.map((card, index) => (
@@ -121,11 +121,11 @@ const WhoItsFor = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <p className="text-sm font-medium opacity-90 mb-2">{card.description}</p>
-                  <h2 className="text-3xl font-bold leading-tight">
+                  <p className="text-scene-desc-mobile font-medium opacity-90 mb-2 font-body">{card.description}</p>
+                  <h2 className="text-scene-heading-mobile font-bold leading-tight font-heading">
                     {card.title}
                   </h2>
-                  <h3 className="text-2xl font-bold text-purple-300">
+                  <h3 className="text-scene-desc-desktop font-bold text-brand-primary font-body">
                     {card.subtitle}
                   </h3>
                 </div>
@@ -139,19 +139,19 @@ const WhoItsFor = () => {
       <div className="flex justify-center mt-8 space-x-4">
         <button
           onClick={prevSlide}
-          className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 z-40"
+          className="w-12 h-12 bg-brand-secondary/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-brand-secondary/30 transition-colors duration-200 z-40"
         >
-          <ChevronLeft className="w-6 h-6 text-black" />
+          <ChevronLeft className="w-6 h-6 text-brand-text" />
         </button>
-        <button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 flex items-center space-x-2">
-          <span>Select path</span>
+        <button className="bg-brand-primary hover:bg-brand-accent text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 flex items-center space-x-2">
+          <span className="text-scene-desc-desktop font-body">Select path</span>
           <ChevronRight className="w-4 h-4" />
         </button>
         <button
           onClick={nextSlide}
-          className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-200 z-40"
+          className="w-12 h-12 bg-brand-secondary/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-brand-secondary/30 transition-colors duration-200 z-40"
         >
-          <ChevronRight className="w-6 h-6 text-black" />
+          <ChevronRight className="w-6 h-6 text-brand-text" />
         </button>
       </div>
 
@@ -162,7 +162,7 @@ const WhoItsFor = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-              index === currentIndex ? 'bg-purple-600' : 'bg-gray-300'
+              index === currentIndex ? 'bg-brand-primary' : 'bg-brand-text-secondary'
             }`}
           />
         ))}
