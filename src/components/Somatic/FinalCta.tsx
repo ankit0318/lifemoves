@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import CountdownTimer from './CountdownTimer';
+
 
 const SomaticWellnessApp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,14 +36,7 @@ const SomaticWellnessApp = () => {
 
   const formatTime = (time: number) => time.toString().padStart(2, '0');
 
-  const handleJoinReset = () => {
-    setIsLoading(true);
-    // Simulate loading
-    setTimeout(() => {
-      setIsLoading(false);
-      alert('Welcome to the 7-Day Reset! Check your email for next steps.');
-    }, 2000);
-  };
+
 
   const handlePayNow = (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,14 +49,7 @@ const SomaticWellnessApp = () => {
     }, 2000);
   };
 
-  const scrollToPricing = () => {
-    const pricing = document.getElementById('pricing');
-    if (pricing) {
-      pricing.scrollIntoView({ 
-        behavior: 'smooth' 
-      });
-    }
-  };
+
 
   return (
     <div className="min-h-screen bg-brand-bg text-brand-text font-body">
@@ -77,7 +63,7 @@ const SomaticWellnessApp = () => {
                 Your Body Is The Best Guide You Never Listened To
               </h1>
               <p className="text-subheading-mobile text-brand-text-secondary mb-6 text-center mx-auto max-w-xl font-body">
-                Let's change that — in just 10 minutes a day.
+                Let&#39;s change that — in just 10 minutes a day.
               </p>
             </div>
             {/* Image and Card Row */}
@@ -146,7 +132,7 @@ const SomaticWellnessApp = () => {
                     {/* Custom Countdown below button */}
                     <div className="mt-4 flex flex-col items-center">
                       <span className="text-xs text-brand-text-secondary mb-1 font-semibold uppercase tracking-wide font-body">Offer ends in</span>
-                      <div className="font-mono text-scene-heading-mobile font-bold text-brand-primary flex items-center gap-1 font-heading">
+                      <div className="text-scene-heading-mobile font-bold text-brand-primary flex items-center gap-1 font-heading">
                         <span>{formatTime(timeLeft.hours)}</span>
                         <span>:</span>
                         <span>{formatTime(timeLeft.minutes)}</span>
@@ -161,22 +147,6 @@ const SomaticWellnessApp = () => {
           </div>
         </section>
 
-        {/* Testimonial Section */}
-        {/* <section className="py-8 px-4 bg-white">
-          <div className="max-w-sm mx-auto text-center">
-            <div className="bg-[#e7f3ef] rounded-xl p-4 mb-4">
-              <p className="text-[#0e1b17] italic mb-3">
-                "In just one week, I learned to recognize tension I'd been carrying for years. The gentle movements made such a difference."
-              </p>
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-8 h-8 bg-[#14b781] rounded-full flex items-center justify-center">
-                  <span className="text-white text-sm font-bold">S</span>
-                </div>
-                <span className="text-sm font-semibold text-[#4e977f]">Sarah M.</span>
-              </div>
-            </div>
-          </div>
-        </section> */}
       </main>
 
       {/* Footer */}

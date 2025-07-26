@@ -56,7 +56,7 @@ const GuideSection5: React.FC = () => {
             </div>
             <div>
               <h3 className="text-scene-heading-desktop font-semibold text-brand-text font-heading">Life Changing</h3>
-              <p className="text-brand-text-secondary text-scene-desc-mobile font-body">Aman's unique fusion of art and wellness has deeply transformed our team's approach to well-being - truly life-changing!</p>
+              <p className="text-brand-text-secondary text-scene-desc-mobile font-body">Aman&#39;s unique fusion of art and wellness has deeply transformed our team&#39;s approach to well-being - truly life-changing!</p>
             </div>
           </div>
         </div>
