@@ -75,7 +75,7 @@ export default function ChallengeOverview() {
 
 
   return (
-    <section className="py-20 bg-gradient-to-b from-purple-50 to-white">
+    <section className="py-20 bg-gradient-to-b from-brand-bg to-white">
       <div className="max-w-4xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -84,14 +84,14 @@ export default function ChallengeOverview() {
           viewport={{ once: true }}
           className="text-center mb-28"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-text mb-6 font-body">
             The 7-Day Somatic Reset
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 mb-4">
+          <p className="text-xl md:text-2xl text-brand-text-secondary  mb-4 font-body">
             A body-first experiment to help you feel like yourself again.
           </p>
-          <div className="inline-flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full">
-            <span className="text-purple-800 font-semibold">
+          <div className="inline-flex items-center gap-2 bg-brand-primary px-4 py-2 rounded-full">
+            <span className="text-brand-accent font-semibold">
               Just 10 minutes a day. No equipment. No fluff.
             </span>
           </div>
@@ -122,10 +122,10 @@ export default function ChallengeOverview() {
                   <div className="hidden md:flex justify-end">
                     {isLeftText ? (
                       <div className="flex flex-col items-end text-right max-w-xs">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-xl font-bold text-brand-text mb-1 font-body">
                         {day.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">
+                        <p className="text-brand-textSecondary mb-2 font-body">
                           {day.description}
                         </p>
                       </div>
@@ -155,10 +155,10 @@ export default function ChallengeOverview() {
                       </div>
                     ) : (
                       <div className="flex flex-col items-start text-left max-w-xs">
-                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                        <h3 className="text-xl font-bold text-brand-text mb-1 font-body">
                            {day.title}
                         </h3>
-                        <p className="text-gray-600 mb-2">
+                        <p className="text-brand-textSecondary mb-2 font-body">
                           {day.description}
                         </p>
                       </div>
@@ -185,10 +185,10 @@ export default function ChallengeOverview() {
                           <Icon className="w-4 h-4" />
                           <span>Day {day.day}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight">
+                        <h3 className="text-xl font-bold text-brand-text mb-2 leading-tight font-body">
                           {day.title}
                         </h3>
-                        <p className="text-gray-600 text-base leading-relaxed">
+                        <p className="text-brand-textSecondary text-base leading-relaxed font-body">
                           {day.description}
                         </p>
                       </div>
@@ -207,9 +207,9 @@ export default function ChallengeOverview() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-green-100 px-6 py-3 rounded-full">
-            <Sparkles className="w-5 h-5 text-purple-600" />
-            <span className="text-gray-800 font-medium">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-primary to-brand-secondary px-6 py-3 rounded-full">
+            <Sparkles className="w-5 h-5 text-brand-accent" />
+            <span className="text-brand-text font-medium font-body">
               Progressive daily sessions building on each other
             </span>
           </div>

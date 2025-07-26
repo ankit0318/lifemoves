@@ -9,12 +9,12 @@ const scenes = [
   {
     image: '/pose1.png',
     text: 'Constant back pain from sitting all day',
-    description: 'Your body aches even when you haven’t moved much.'
+    description: 'Your body aches even when you haven\'t moved much.'
   },
   {
     image: '/pose2.png',
     text: 'Tired even after sleeping',
-    description: 'Rest doesn’t feel like rest anymore.'
+    description: 'Rest doesn\'t feel like rest anymore.'
   },
   {
     image: '/pose3.png',
@@ -25,11 +25,6 @@ const scenes = [
     image: '/pose4.png',
     text: 'Burnt out and always on edge',
     description: 'Overwhelmed by stress and anxiety that never seems to fully go away.'
-  },
-  {
-    image: '/pose5.png',
-    text: 'Tried yoga, gym, HIIT, even meditation—nothing sticks.',
-    description: 'You’ve tried everything, but nothing feels sustainable.'
   },
   {
     image: '/pose5.png',
@@ -47,36 +42,36 @@ export default function StoryHook() {
       setSceneIndex((prev) => (prev + 1) % scenes.length);
     }, 1700); // Change scene every 3 seconds
 
-    return () => clearInterval(interval);
+    return () => clearInterval(interval)
   }, []);
 
   return (
-    <div className="bg-gray-50 text-gray-800 font-[Poppins] min-h-screen py-24 sm:py-32 px-4">
+    <div className="bg-brand-bg text-brand-text font-body min-h-screen py-24 sm:py-32 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight font-poppins">
+          <h1 className="text-4xl md:text-7xl text-brand-text font-bold leading-tight font-body">
             Your body&apos;s been trying <br className="hidden md:block" /> to tell you things.
           </h1>
-          <p className="text-xl text-gray-500 mt-4 font-[Poppins]">
-            You&apos;ve just been... <span className="text-purple-600 font-semibold">busy.</span>
+          <p className="md:text-4xl text-2xl text-brand-text-secondary mt-4 font-body">
+            You&apos;ve just been... <span className="text-brand-primary md:text-5xl text-4xl font-bold">busy.</span>
           </p>
         </div>
         {/* Responsive Layout: Mobile = stacked, Desktop = 3-column */}
         <div className="w-full flex flex-col items-center md:grid md:grid-cols-3 md:gap-8 md:items-stretch">
           {/* Left column: first 3 text+desc */}
-          <div className="hidden md:flex flex-col justify-between py-4">
+          <div className="hidden md:flex flex-col justify-between py-4 ">
             {scenes.slice(0, 3).map((scene, idx) => (
               <div
                 key={scene.text}
                 className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx ? 'opacity-100' : 'opacity-10'}`}
               >
-                <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
-                <p className="text-gray-500 text-base">{scene.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
+                <p className="text-brand-text text-base font-body">{scene.description}</p>
               </div>
             ))}
           </div>
           {/* Center column: images */}
-          <div className="flex flex-col items-center justify-center relative py-4">
+          <div className="flex flex-col items-center justify-center relative py-4 ">
             <div className="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
               {scenes.map((scene, idx) => (
                 <Image
@@ -91,8 +86,8 @@ export default function StoryHook() {
             </div>
             {/* Mobile: show only current text+desc below image */}
             <div className="md:hidden mt-8 w-full">
-              <h3 className="text-2xl font-semibold mb-2 text-center">{currentScene.text}</h3>
-              <p className="text-gray-500 text-lg text-center">{currentScene.description}</p>
+              <h3 className="text-2xl font-semibold mb-2 text-center text-brand-text font-heading">{currentScene.text}</h3>
+              <p className="text-brand-text text-lg text-center font-body">{currentScene.description}</p>
             </div>
         </div>
           {/* Right column: last 3 text+desc */}
@@ -102,8 +97,8 @@ export default function StoryHook() {
                 key={scene.text}
                 className={`mb-8 last:mb-0 transition-all duration-500 ${sceneIndex === idx + 3 ? 'opacity-100' : 'opacity-10'}`}
               >
-                <h3 className="text-xl font-semibold mb-2">{scene.text}</h3>
-                <p className="text-gray-500 text-base">{scene.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-brand-text font-heading">{scene.text}</h3>
+                <p className="text-brand-text text-base font-body">{scene.description}</p>
               </div>
             ))}
           </div>
@@ -114,7 +109,7 @@ export default function StoryHook() {
             <button
               key={idx}
               onClick={() => setSceneIndex(idx)}
-              className={`w-3 h-3 rounded-full transition-colors duration-200 ${sceneIndex === idx ? 'bg-purple-600' : 'bg-gray-300 hover:bg-gray-400'}`}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${sceneIndex === idx ? 'bg-brand-primary' : 'bg-brand-secondary hover:bg-brand-accent'}`}
               aria-label={`Go to scene ${idx + 1}`}
             />
           ))}

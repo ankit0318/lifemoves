@@ -3,7 +3,8 @@
 @theme {
   /* Brand colors make bg-brand-*, text-brand-* utilities available */
   --color-brand-text: #0e180b;
-  --color-brand-bg: #EFEFEF;
+  --color-brand-text-secondary: #4a5565;
+  --color-brand-bg: #F7FCF5;
   --color-brand-primary: #beb5f2;
   --color-brand-secondary: #9eccaf;
   --color-brand-accent: #5859a7;
